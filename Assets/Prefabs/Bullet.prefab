@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4777068923259683700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4777068923259683706}
+  - component: {fileID: 4777068923259683701}
+  m_Layer: 0
+  m_Name: Bullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4777068923259683706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4777068923259683700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.902, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4777068923259683701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4777068923259683700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93af4645ad4411428041ef7efb27d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 1000000
+  damage: 20
+  decalHitWall: {fileID: 1672059315757430, guid: 311c3b16dd989ce4ba65e246a9637d4e,
+    type: 3}
+  decalBloodHitWall: {fileID: 1634678369191810, guid: d1c82cf73323e9e47a69d153d2b00c91,
+    type: 3}
+  floatInfrontOfWall: 0
+  bloodEffect: {fileID: 1115406793755092, guid: 4e533e22361e35f43898b34aaf46ad10,
+    type: 3}
+  sparkEffect: {fileID: 6137636386465208245, guid: 540e3b76fc6fe19478f4cd6692ecda12,
+    type: 3}
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 260
+  mask:
+    serializedVersion: 2
+    m_Bits: 4294967295
