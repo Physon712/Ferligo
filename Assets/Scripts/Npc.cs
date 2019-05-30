@@ -76,7 +76,7 @@ public class Npc : MonoBehaviour {
 		{
 			Die();
 		}
-		if(!dead)AI();
+		if(!dead && target != null)AI();
 
 		
     }
