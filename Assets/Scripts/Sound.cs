@@ -14,6 +14,7 @@ public class Sound : MonoBehaviour
 		Npc subject = nearbyObject.GetComponent<Npc> ();
 			if (subject != null)
 			{
+
 				if(subject.AiState != 3 && subject.AiState != 2)
 				{
 					subject.AiState = 1;

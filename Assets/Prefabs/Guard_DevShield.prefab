@@ -74,7 +74,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -3334933058281800568, guid: 9720bb12ac02db94e860ca3fd3061a2f, type: 3}
+  m_Mesh: {fileID: -3334933058281800568, guid: 06a564cadb0a4d34fae5b55498f87183, type: 3}
   m_Bones:
   - {fileID: 6192611599404292778}
   - {fileID: 7228266559226409396}
@@ -696,7 +696,7 @@ MonoBehaviour:
   enemyLayer: 10
   maxReactionTime: 3
   reflexTime: 1
-  salve: 3
+  painStunTime: 1
   rateOfFire: 1
   dispersion: 5
   bulletQuantity: 1

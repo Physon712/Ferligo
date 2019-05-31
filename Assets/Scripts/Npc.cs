@@ -23,7 +23,7 @@ public class Npc : MonoBehaviour {
 	public int enemyLayer;
 	public float maxReactionTime = 3f;
 	public float reflexTime = 1f;
-	public int salve = 3;
+	public float painStunTime = 1f;
 	public float rateOfFire = 1f;
 	public float dispersion = 5f;
 	public int bulletQuantity = 1;
@@ -121,6 +121,7 @@ public class Npc : MonoBehaviour {
         }
 		if(!dead) //Show Pain
 		{
+			nextShoot = Time.time + painStunTime;
 			AiState = 1;
 			index = Random.Range (0, painClip.Length);
 			mouth.clip = painClip[index];
@@ -178,7 +179,7 @@ public class Npc : MonoBehaviour {
 						MakeAMove();
 						nextMove = Time.time + mobility*Random.value + 2f;
 					}
-					if(anim.GetBool("isWalking"));
+					if(!anim.GetBool("isWalking"));
 					{
 						if(nextShoot <= Time.time)
 						{
@@ -190,25 +191,29 @@ public class Npc : MonoBehaviour {
 				{
 				reactionTime = 5f;
 				AiState = 2;
+				/*
 				index = Random.Range (0, callbackupClip.Length);
 				mouth.clip = callbackupClip[index];
 				mouth.Play();
+				*/
 				}
 			}
 			else
 			{
 			reactionTime = 5f;
 			AiState = 2;
+			/*
 			index = Random.Range (0, callbackupClip.Length);
 			mouth.clip = callbackupClip[index];
 			mouth.Play();
+			*/
 			}
 		}
 		if(AiState == 2)//SearchTheTarget
 		{
 		
 			
-			if (Physics.Raycast (transform.position+Vector3.up, direction.normalized,out hit , range, ~lm) && Vector3.Angle(direction, transform.forward) < fov / 2f && hit.transform.gameObject.layer == enemyLayer ) 
+			if (Physics.Raycast (transform.position+Vector3.up, direction.normalized,out hit , range, ~lm)/* && Vector3.Angle(direction, transform.forward) < fov / 2f*/ && hit.transform.gameObject.layer == enemyLayer ) 
 			{
 				brain.isStopped = true;
 				nextShoot = Time.time + reflexTime;
@@ -219,7 +224,7 @@ public class Npc : MonoBehaviour {
 			{
 				brain.SetDestination(target.position);
 				brain.isStopped = false;
-				if(reinforcment !=  null)reinforcment.active = true;
+				if(reinforcment !=  null)reinforcment.SetActive(true);
 			}
 		}
 	}

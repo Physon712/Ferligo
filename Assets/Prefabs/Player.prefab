@@ -229,7 +229,7 @@ MonoBehaviour:
     m_Bits: 4
   maxDistance: 1000
   fireButton: Fire1
-  shootAnimation: Shoot
+  shootAnimation: 
 --- !u!82 &7176902550327716288
 AudioSource:
   m_ObjectHideFlags: 0
@@ -459,7 +459,7 @@ MonoBehaviour:
     m_Bits: 4
   maxDistance: 1000
   fireButton: Fire1
-  shootAnimation: Shoot
+  shootAnimation: 
 --- !u!82 &7176902550133674126
 AudioSource:
   m_ObjectHideFlags: 0
@@ -823,7 +823,7 @@ MonoBehaviour:
     m_Bits: 4
   maxDistance: 1000
   fireButton: Fire1
-  shootAnimation: Shoot
+  shootAnimation: 
 --- !u!1 &7176902549343929888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1795,7 +1795,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -1848,7 +1848,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -1901,8 +1901,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotation:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 3
+      scalar: 6.283185
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6119,8 +6119,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 1c474534bed234244a5c9aaabe677cb7, type: 2}
+  - {fileID: 2100000, guid: 1c474534bed234244a5c9aaabe677cb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6566,14 +6566,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c442166b883874890c2c3d5b865917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 2000000000000000240000002a000000
+  ammo: 2000000078000000240000002a000000
+  maxAmmo: 7d000000f0000000240000002a000000
   weapon:
   - {fileID: 7176902551057068825}
   - {fileID: 1204879812168747675}
   - {fileID: 1204879813429147225}
   - {fileID: 1204879812782436656}
   - {fileID: 1204879812923967984}
-  weapponPossesion: 0101000001
+  weapponPossesion: 0100010101
   currentWeapon: 0
   anim: {fileID: 0}
   health: 100
@@ -21517,6 +21518,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle System (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 198246160810134008, guid: 076237d2a9082d94cbe891309133eedc,
+        type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8598954236217306308, guid: 1e5afcafe900deb4a82e039f4c4fbff7,
+        type: 3}
+    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2534964839176971238, guid: caaaca77dfa68c945876fd82f171232e,
+        type: 3}
     - target: {fileID: 4057249018905296, guid: 076237d2a9082d94cbe891309133eedc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -21561,23 +21579,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198246160810134008, guid: 076237d2a9082d94cbe891309133eedc,
-        type: 3}
-      propertyPath: CollisionModule.m_Bounce.scalar
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 8598954236217306308, guid: 1e5afcafe900deb4a82e039f4c4fbff7,
-        type: 3}
-    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 2534964839176971238, guid: caaaca77dfa68c945876fd82f171232e,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 076237d2a9082d94cbe891309133eedc, type: 3}
 --- !u!198 &7014696225200329820 stripped
@@ -21597,6 +21598,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle System (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 198246160810134008, guid: 076237d2a9082d94cbe891309133eedc,
+        type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8598954236217306308, guid: 1e5afcafe900deb4a82e039f4c4fbff7,
+        type: 3}
+    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2534964839176971238, guid: caaaca77dfa68c945876fd82f171232e,
+        type: 3}
     - target: {fileID: 4057249018905296, guid: 076237d2a9082d94cbe891309133eedc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -21641,23 +21659,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198246160810134008, guid: 076237d2a9082d94cbe891309133eedc,
-        type: 3}
-      propertyPath: CollisionModule.m_Bounce.scalar
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 8598954236217306308, guid: 1e5afcafe900deb4a82e039f4c4fbff7,
-        type: 3}
-    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 2534964839176971238, guid: caaaca77dfa68c945876fd82f171232e,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 076237d2a9082d94cbe891309133eedc, type: 3}
 --- !u!198 &7014696225091518152 stripped
@@ -22727,6 +22728,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle System (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 198246160810134008, guid: 076237d2a9082d94cbe891309133eedc,
+        type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198246160810134008, guid: 076237d2a9082d94cbe891309133eedc,
+        type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09ac9be8d8f66f74b83c989edbed16a6, type: 2}
+    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2534964839176971238, guid: f1fb4f818bb9a74448767f2cb7158904,
+        type: 3}
     - target: {fileID: 4057249018905296, guid: 076237d2a9082d94cbe891309133eedc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.07
@@ -22771,27 +22793,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198246160810134008, guid: 076237d2a9082d94cbe891309133eedc,
-        type: 3}
-      propertyPath: InitialModule.rotation3D
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198246160810134008, guid: 076237d2a9082d94cbe891309133eedc,
-        type: 3}
-      propertyPath: CollisionModule.m_Bounce.scalar
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 09ac9be8d8f66f74b83c989edbed16a6, type: 2}
-    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 2534964839176971238, guid: f1fb4f818bb9a74448767f2cb7158904,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 076237d2a9082d94cbe891309133eedc, type: 3}
 --- !u!198 &7014696226024134948 stripped

@@ -5720,12 +5720,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0f5e2240c194b3e4aa0172e90e577919, type: 3}
   AiState: 0
   range: 100
+  screamRadius: 3
   lm:
     serializedVersion: 2
     m_Bits: 516
   enemyLayer: 10
   maxReactionTime: 3
-  salve: 3
+  reflexTime: 1
+  painStunTime: 1
   rateOfFire: 1
   dispersion: 5
   bulletQuantity: 1
@@ -5740,6 +5742,8 @@ MonoBehaviour:
   mobility: 4
   fov: 110
   reinforcment: {fileID: 0}
+  nextShoot: 0
+  reactionLeft: 0
 --- !u!82 &9100525553911661541
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6061,7 +6065,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -3334933058281800568, guid: 9720bb12ac02db94e860ca3fd3061a2f, type: 3}
+  m_Mesh: {fileID: -3334933058281800568, guid: 06a564cadb0a4d34fae5b55498f87183, type: 3}
   m_Bones:
   - {fileID: 9196296384953514694}
   - {fileID: 5629688123554157016}

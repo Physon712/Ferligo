@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
+
 using TMPro;
 
 public class AmmoPickUp : MonoBehaviour{
@@ -29,7 +29,7 @@ public class AmmoPickUp : MonoBehaviour{
 	void Start()
 	{
 		rb = gameObject.GetComponent<Rigidbody>();
-		inventory = GameObject.Find("Player").GetComponent<Inventory>();
+		if(GameObject.Find("Player"))inventory = GameObject.Find("Player").GetComponent<Inventory>();
 		//pickedText = GameObject.Find("PickedUpText");
 	}
 	void OnTriggerEnter(Collider other)

@@ -24,6 +24,7 @@ public class Gun : MonoBehaviour {
 	public int ammoType = 0;
 	public int magSize = 16;
 	public float reloadTime = 1f;
+	public bool autoReload = false;
 	public bool semiAuto = false;
 	public GameObject crosshair;
 	public LayerMask ignoreLayer;
@@ -31,9 +32,8 @@ public class Gun : MonoBehaviour {
 	RaycastHit hit;
 	float shootDelay;
 	public string fireButton = "Fire1";
-	public string shootAnimation = "Shoot";
+	public string shootAnimation = "";
 	private TextMeshProUGUI ammoText;
-	float nextShoot = 0f;
 	int ammoLeft = 0;
 	void Start (){
 		ammoLeft = magSize;
@@ -48,7 +48,7 @@ public class Gun : MonoBehaviour {
 		{
 			Shoot();
 		}
-		if(Input.GetKey("r") && shootDelay < 0 && ammoLeft != magSize && ammoSatchel.ammo[ammoType] > 0)
+		if((Input.GetKey("r") && shootDelay < 0 && ammoLeft != magSize && ammoSatchel.ammo[ammoType] > 0 && !autoReload ) || (autoReload && shootDelay < 0 && ammoLeft != magSize && ammoSatchel.ammo[ammoType] > 0))
 		{
 			Reload();
 		}
@@ -79,8 +79,11 @@ public class Gun : MonoBehaviour {
 		Instantiate(bullet,muzzle.position,Quaternion.Euler(new Vector3(Random.Range(-dispersion,dispersion),Random.Range(-dispersion,dispersion),Random.Range(-dispersion,dispersion))+muzzle.eulerAngles),null);
 
 		mouseLookScript.currentCameraXRotation -= punch;
-		anim.Play(shootAnimation);
-		gunShoot.Play();
+		if(shootAnimation != "")
+		{
+			anim.Play(shootAnimation);
+		}
+		if(gunShoot != null)gunShoot.Play();
 		if(part != null)part.Play();
 		if(part2 != null)part2.Play();
 	}

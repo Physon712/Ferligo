@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour {
 	public Animator anim;
 	public float health = 100f;
 	public float armor = 100f;
-	
+	bool dead = false;
 	public GameObject corps;
 	public PlayerMovement playMove;
 	/*
@@ -105,8 +105,10 @@ public class Inventory : MonoBehaviour {
 			armor = 0f;
 		}
 		
-		if(health <= 0)
+		if(health <= 0 && dead == false)
 		{
+			dead = true;
+			
 			gameObject.SetActive(false);
 			Instantiate(corps,transform.position-Vector3.up,transform.rotation);
 		}
