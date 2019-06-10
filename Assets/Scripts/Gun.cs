@@ -9,6 +9,7 @@ public class Gun : MonoBehaviour {
 	public Transform muzzle;
 	public GameObject bullet;
 	public AudioSource gunShoot;
+	public AudioSource gunReload;
 	public Animator anim;
 	public MouseLook mouseLookScript;
 	public Camera fpscam;
@@ -34,9 +35,9 @@ public class Gun : MonoBehaviour {
 	public string fireButton = "Fire1";
 	public string shootAnimation = "";
 	private TextMeshProUGUI ammoText;
-	int ammoLeft = 0;
+	public int ammoLeft = 712;
 	void Start (){
-		ammoLeft = magSize;
+		/*if(ammoLeft == 712)*/ammoLeft = magSize;
 		ammoText = GameObject.Find("AmmoCounter").GetComponent<TextMeshProUGUI>();
 	}
 
@@ -91,6 +92,7 @@ public class Gun : MonoBehaviour {
 	private void Reload()
 	{
 		anim.Play("Reload");
+		if(gunReload != null)gunReload.Play();
 		shootDelay = reloadTime;
 		ammoSatchel.ammo[ammoType] += ammoLeft;
 		ammoLeft = 0;

@@ -16,8 +16,9 @@ public class Inventory : MonoBehaviour {
 	bool dead = false;
 	public GameObject corps;
 	public PlayerMovement playMove;
-	/*
 	public TextMeshProUGUI healthText;
+	/*
+	
 	public TextMeshProUGUI armorText;
 	public TextMeshProUGUI ammoText;
 	*/
@@ -28,6 +29,7 @@ public class Inventory : MonoBehaviour {
 	
 	void Start() {
 		//Loadinv();
+		healthText = GameObject.Find("StatusReporter").GetComponent<TextMeshProUGUI>();
 		weapon[currentWeapon].SetActive(true);
 	}
 	// Update is called once per frame
@@ -49,9 +51,10 @@ public class Inventory : MonoBehaviour {
 				{
 					currentWeapon = 0;
 				}
-			if(weapponPossesion[currentWeapon])
+			if(weapponPossesion[currentWeapon] && (currentWeapon == 0 || ammo[weapon[currentWeapon].GetComponent<Gun>().ammoType] + weapon[currentWeapon].GetComponent<Gun>().ammoLeft > 0))
 			{
 				ok = true;
+				//Debug.Log(ammo[weapon[currentWeapon].GetComponent<Gun>().ammoType] + weapon[currentWeapon].GetComponent<Gun>().ammoLeft);
 			}
 				
 			}
@@ -74,7 +77,7 @@ public class Inventory : MonoBehaviour {
 				{
 					currentWeapon = weapon.Length-1;
 				}
-			if(weapponPossesion[currentWeapon])
+			if(weapponPossesion[currentWeapon] && (currentWeapon == 0 || ammo[weapon[currentWeapon].GetComponent<Gun>().ammoType] + weapon[currentWeapon].GetComponent<Gun>().ammoLeft > 0))
 			{
 				ok = true;
 			}
@@ -87,23 +90,32 @@ public class Inventory : MonoBehaviour {
 		{
 			armor = 200f;
 		}
-		if(health > 200f)
+		if(health > 100f)
 		{
-			health = 200f;
+			health = 100f;
 		}
 		//ammoText.text = ammo[weapon[currentWeapon].transform.GetComponent<Gun>().ammoType].ToString();
-		//healthText.text = health.ToString();
+		healthText.text = health.ToString() + " | "  + armor.ToString();
 		//armorText.text = armor.ToString();
 	}
-	public void GetHurt(float amount){
+	public void GetHurt(float amount, float armorAmount){
 		
-		health -= amount/2f;
-		armor -= amount/2f;
-		if(armor < 0f)
+		if(armor > 0f)
 		{
-			health += armor;
-			armor = 0f;
+			armor -= armorAmount;
+			if(armor < 0f)
+			{
+				//PLay a sound ?
+				health += armor;
+				armor = 0f;
+			}
+				
 		}
+		else
+		{
+			health -= amount;
+		}
+		
 		
 		if(health <= 0 && dead == false)
 		{

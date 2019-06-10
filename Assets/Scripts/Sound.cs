@@ -5,6 +5,7 @@ using UnityEngine;
 public class Sound : MonoBehaviour
 {
     public float radius;
+	public bool autoDestroy = true ;
 	
 	void Start()
 	{
@@ -23,6 +24,6 @@ public class Sound : MonoBehaviour
 				
 			}
 		}
-	Destroy(gameObject);
+	if(autoDestroy)Destroy(gameObject);
 	}
 }

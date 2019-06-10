@@ -82,17 +82,20 @@ public class PlayerMovement : MonoBehaviour {
 		/*
 		 * Slippery issues fixed here
 		 */
+		 
 		if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0) {
 			deaccelerationSpeed = 0.5f;
 		} else {
-			deaccelerationSpeed = 0.1f;
+			deaccelerationSpeed = 2f;
 		}
+		
 	}
 	/*
 	* Handles jumping and ads the force and sounds.
 	*/
 	void Jumping(){
-		if (Input.GetKey(KeyCode.Space) && grounded) {
+		if (Input.GetKeyDown(KeyCode.Space) && grounded) {
+			anim.Play("Hands_jump");
 			rb.AddRelativeForce (Vector3.up * jumpForce);
 			grounded = false;
 			if (_jumpSound)

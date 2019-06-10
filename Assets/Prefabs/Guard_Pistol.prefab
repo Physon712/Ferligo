@@ -345,7 +345,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361097833}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 4
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -5691,6 +5691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 4873279980269047474}
   health: 100
+  armor: 0
   ragdollTime: 30
   anim: {fileID: 7517045841609656540}
   mouth: {fileID: 5627547325608690196}
@@ -5731,7 +5732,7 @@ MonoBehaviour:
   rateOfFire: 1
   dispersion: 5
   bulletQuantity: 1
-  bullet: {fileID: 4777068923259683700, guid: a6bde3f4b617268449cc559dac40b5b3, type: 3}
+  bullet: {fileID: 4198292186048215638, guid: bfb1c05297bc6da4b9e5518e875ed636, type: 3}
   gunShoot: {fileID: 8389031045131874987}
   strafRadius: 7
   monitor: {fileID: 494246539920418214}
@@ -6335,7 +6336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211e499038a99144183690e98be49257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageMultiplier: 5
+  damageMultiplier: 3
   subject: {fileID: 4873279980269047475}
   player: {fileID: 0}
 --- !u!82 &5627547325608690196

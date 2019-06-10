@@ -5,7 +5,8 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour {
 	[Tooltip("Furthest distance bullet will look for target")]
 	public float maxDistance = 1000000;
-	public float damage = 20f;
+	public float damage = 10f;
+	public float damageArmor = 10f;
 	RaycastHit hit;
 	RaycastHit hit2;
 	[Tooltip("Prefab of wall damange hit. The object needs 'LevelPart' tag to create decal on it.")]
@@ -53,7 +54,7 @@ public class BulletScript : MonoBehaviour {
 					
 			if (target != null)
 				{
-				target.TakeDamage(damage);
+				target.TakeDamage(damage, damageArmor);
 				}
 				
 		}

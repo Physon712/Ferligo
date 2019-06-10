@@ -9,6 +9,7 @@ public class Npc : MonoBehaviour {
 	
 	public NavMeshAgent brain;
     public float health = 100f;
+	public float armor = 25f;
     public float ragdollTime = 30f;
 	public Animator anim;
 	public AudioSource mouth;
@@ -112,9 +113,25 @@ public class Npc : MonoBehaviour {
    
     }
 
-    public void GetHurt(float amount)
-    {
-		health -= amount;
+	public void GetHurt(float amount, float armorAmount){
+		
+		if(armor > 0f)
+		{
+			armor -= armorAmount;
+			if(armor < 0f)
+			{
+				//PLay a sound ?
+				health += armor;
+				armor = 0f;
+			}
+				
+		}
+		else
+		{
+			health -= amount;
+		}
+	
+	
         if (health <= 0 && dead == false)
         {
             Die();

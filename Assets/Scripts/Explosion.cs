@@ -25,17 +25,17 @@ public class Explosion : MonoBehaviour
 		Inventory subject = nearbyObject.GetComponent<Inventory> ();
 			if (subject != null)
 			{
-			subject.GetHurt(damage*damageMultiplierPlayer);
+			subject.GetHurt(damage*damageMultiplierPlayer, damage*damageMultiplierPlayer);
 			}
 		Damageable target = nearbyObject.GetComponent<Damageable> ();
 			if (target != null)
 			{
-			target.TakeDamage(damage*damageMultiplierBadguy);
+			target.TakeDamage(damage*damageMultiplierBadguy, damage*damageMultiplierBadguy);
 			if(dummyBlood != null)Instantiate(dummyBlood,target.transform.position+Vector3.up,target.transform.rotation);
 			}
 		
 		}
-	Destroy(gameObject, 1f);
+	Destroy(gameObject, 3f);
     }
 	
 	void Update()

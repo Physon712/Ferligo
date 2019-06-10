@@ -48,9 +48,9 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 9720bb12ac02db94e860ca3fd3061a2f, type: 3}
-  - {fileID: 4250972779551834545, guid: 9720bb12ac02db94e860ca3fd3061a2f, type: 3}
-  - {fileID: -874164558550236988, guid: 9720bb12ac02db94e860ca3fd3061a2f, type: 3}
+  - {fileID: 2100000, guid: 8fb0878e146f55b40884590aa1d2e417, type: 2}
+  - {fileID: 2100000, guid: 620545fe9e4384f43a202a757ea8f0be, type: 2}
+  - {fileID: 2100000, guid: 0959da732d126b74ea0e117269db0069, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,7 +74,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -3334933058281800568, guid: 06a564cadb0a4d34fae5b55498f87183, type: 3}
+  m_Mesh: {fileID: -3334933058281800568, guid: 317f2fac61088b74e96948a0c9186096, type: 3}
   m_Bones:
   - {fileID: 6192611599404292778}
   - {fileID: 7228266559226409396}
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211e499038a99144183690e98be49257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageMultiplier: 5
+  damageMultiplier: 2
   subject: {fileID: 7624035568357060319}
   player: {fileID: 0}
 --- !u!82 &7239059058864628344
@@ -660,6 +660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 7624035568357060318}
   health: 100
+  armor: 100
   ragdollTime: 30
   anim: {fileID: 4773451648163948720}
   mouth: {fileID: 7239059058864628344}
@@ -700,7 +701,7 @@ MonoBehaviour:
   rateOfFire: 1
   dispersion: 5
   bulletQuantity: 1
-  bullet: {fileID: 4777068923259683700, guid: a6bde3f4b617268449cc559dac40b5b3, type: 3}
+  bullet: {fileID: 4198292186048215638, guid: bfb1c05297bc6da4b9e5518e875ed636, type: 3}
   gunShoot: {fileID: 6774696899890320071}
   strafRadius: 7
   monitor: {fileID: 3221401093737285066}
@@ -1646,7 +1647,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3057765640846218245}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 4
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
