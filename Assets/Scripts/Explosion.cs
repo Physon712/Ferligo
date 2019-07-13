@@ -33,6 +33,11 @@ public class Explosion : MonoBehaviour
 			target.TakeDamage(damage*damageMultiplierBadguy, damage*damageMultiplierBadguy);
 			if(dummyBlood != null)Instantiate(dummyBlood,target.transform.position+Vector3.up,target.transform.rotation);
 			}
+		Breakable target2 = nearbyObject.GetComponent<Breakable> ();
+			if (target2 != null)
+			{
+			target2.TakeDamage(damage);
+			}
 		
 		}
 	Destroy(gameObject, 3f);

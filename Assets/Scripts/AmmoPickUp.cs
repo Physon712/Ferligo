@@ -39,7 +39,7 @@ public class AmmoPickUp : MonoBehaviour{
 		{
 			ok = false;
 			Destroy(gameObject);
-			sound.Play();
+			if(sound != null)sound.Play();
 			inventory.ammo[ammoType] += ammoQuantity;
 			if(inventory.ammo[ammoType] > inventory.maxAmmo[ammoType])inventory.ammo[ammoType] = inventory.maxAmmo[ammoType];
 			inventory.health += health;

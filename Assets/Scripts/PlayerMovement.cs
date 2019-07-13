@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (grounded) {
 			rb.AddRelativeForce (Input.GetAxis ("Horizontal") * accelerationSpeed * Time.deltaTime, 0, Input.GetAxis ("Vertical") * accelerationSpeed * Time.deltaTime);
 		} else {
-			rb.AddRelativeForce (Input.GetAxis ("Horizontal") * accelerationSpeed / airAccelaration * Time.deltaTime, 0, Input.GetAxis ("Vertical") * accelerationSpeed / 2 * Time.deltaTime);
+			rb.AddRelativeForce (Input.GetAxis ("Horizontal") * airAccelaration * Time.deltaTime, 0, Input.GetAxis ("Vertical") * airAccelaration * Time.deltaTime);
 
 		}
 		/*

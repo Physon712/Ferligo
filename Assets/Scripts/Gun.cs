@@ -21,12 +21,15 @@ public class Gun : MonoBehaviour {
 	public float firerate = 0.1f;
 	public float recoil = 1f;
 	public float punch = 0.5f;
+	public float kick = 0.1f;
 	public float dispersion = 0f;
 	public int ammoType = 0;
 	public int magSize = 16;
 	public float reloadTime = 1f;
 	public bool autoReload = false;
 	public bool semiAuto = false;
+	public bool canAim = false;
+    public float aimingFov = 15f;
 	public GameObject crosshair;
 	public LayerMask ignoreLayer;
 	public float maxDistance = 1000f;
@@ -35,21 +38,58 @@ public class Gun : MonoBehaviour {
 	public string fireButton = "Fire1";
 	public string shootAnimation = "";
 	private TextMeshProUGUI ammoText;
+	private float zOffset;
 	public int ammoLeft = 712;
 	void Start (){
 		/*if(ammoLeft == 712)*/ammoLeft = magSize;
 		ammoText = GameObject.Find("AmmoCounter").GetComponent<TextMeshProUGUI>();
+		zOffset = transform.localPosition.z;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		shootDelay -= Time.deltaTime;
 		Crosshair();
+		///Aiming
+		if(Input.GetButtonDown("Use") && shootDelay < 0)
+		{
+			anim.Play("Action");
+		}
+		if(canAim)
+		{
+		 if (Input.GetButtonDown("Fire2"))
+        {
+            //isAiming = true;
+            anim.SetBool("isAiming", true);
+			
+            
+        }
+        if (Input.GetButtonUp("Fire2"))
+        {
+            //if (isAiming == true) isAiming = false;
+            anim.SetBool("isAiming", false);
+            
+        }
+		}
+        if (canAim &&Input.GetButton("Fire2"))
+        {
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, aimingFov, 10f*Time.deltaTime);
+			fpscam.fieldOfView = Mathf.Lerp(cam.fieldOfView, aimingFov/2, 10f*Time.deltaTime);
+			//mouseLookScript.sensivity = mouseSensivity*(aimingFov/75f)
+			mouseLookScript.mouseSensitvity = 1f;
+        }
+        else
+        {
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 75f, 20f*Time.deltaTime);
+			fpscam.fieldOfView = Mathf.Lerp(fpscam.fieldOfView, 60f, 20f*Time.deltaTime);
+			mouseLookScript.mouseSensitvity = 3.5f;
+        }
+		
 		if((Input.GetButton(fireButton) && !semiAuto) || (Input.GetButtonDown(fireButton) && semiAuto))
 		{
 			Shoot();
 		}
-		if((Input.GetKey("r") && shootDelay < 0 && ammoLeft != magSize && ammoSatchel.ammo[ammoType] > 0 && !autoReload ) || (autoReload && shootDelay < 0 && ammoLeft != magSize && ammoSatchel.ammo[ammoType] > 0))
+		if((Input.GetKey("r") && shootDelay < 0 && ammoLeft != magSize && ammoSatchel.ammo[ammoType] > 0 && !autoReload && (!canAim || !anim.GetBool("isAiming")) ) || (autoReload && shootDelay < 0 && ammoLeft != magSize && ammoSatchel.ammo[ammoType] > 0 && (!canAim || !anim.GetBool("isAiming"))))
 		{
 			Reload();
 		}
@@ -70,6 +110,7 @@ public class Gun : MonoBehaviour {
 			}
 			
 			transform.Rotate(-Random.Range(0f,recoil), Random.Range(-recoil/2,recoil/2),Random.Range(-recoil,recoil));
+			transform.Translate(0f,0f,-kick);
 			shootDelay = firerate;
 			ammoLeft--;
 		}
@@ -111,6 +152,7 @@ public class Gun : MonoBehaviour {
 	private void ControlRecoil()
 	{
 		transform.Rotate(-transform.localRotation.x*8,-transform.localRotation.y*8,-transform.localRotation.z*8);
+		transform.Translate(-transform.localPosition.x,-transform.localPosition.y,(zOffset-transform.localPosition.z)*0.25f);
 	}
 	
 	private void Crosshair()

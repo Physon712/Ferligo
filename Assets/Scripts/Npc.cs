@@ -30,13 +30,14 @@ public class Npc : MonoBehaviour {
 	public int bulletQuantity = 1;
 	public GameObject bullet;
 	public AudioSource gunShoot;
-	public float strafRadius = 2f;
 	public Transform monitor;
 	public ParticleSystem part;
 	public ParticleSystem part2;
 	public Transform muzzle;
 	public Transform target;
 	public float mobility = 5f;
+	public float strafRadius = 2f;
+	public float duckTendancy = 0.5f;
 	public float fov = 135f;
 	public GameObject reinforcment;
 	RaycastHit hit;
@@ -172,7 +173,7 @@ public class Npc : MonoBehaviour {
 		
 		if(AiState == 0)//Unaware
 		{
-			if (Physics.Raycast (transform.position+Vector3.up, direction.normalized,out hit , range, ~lm) && Vector3.Angle(direction, transform.forward) < fov / 2f) 
+			if (Physics.Raycast (transform.position+Vector3.up*2, direction.normalized,out hit , range, ~lm) && Vector3.Angle(direction, transform.forward) < fov / 2f) 
 			{
 				if(hit.transform.gameObject.layer == enemyLayer)
 				{
@@ -185,7 +186,7 @@ public class Npc : MonoBehaviour {
 		}
 		if(AiState == 1)//Engaging
 		{
-			if (Physics.Raycast (transform.position+Vector3.up, direction.normalized,out hit , range, ~lm)) 
+			if (Physics.Raycast (transform.position+Vector3.up*2, direction.normalized,out hit , range, ~lm)) 
 			{	
 				
 				if(hit.transform.gameObject.layer == enemyLayer)
@@ -196,7 +197,7 @@ public class Npc : MonoBehaviour {
 						MakeAMove();
 						nextMove = Time.time + mobility*Random.value + 2f;
 					}
-					if(!anim.GetBool("isWalking"));
+					if(!anim.GetBool("isWalking"))
 					{
 						if(nextShoot <= Time.time)
 						{
@@ -230,7 +231,7 @@ public class Npc : MonoBehaviour {
 		{
 		
 			
-			if (Physics.Raycast (transform.position+Vector3.up, direction.normalized,out hit , range, ~lm)/* && Vector3.Angle(direction, transform.forward) < fov / 2f*/ && hit.transform.gameObject.layer == enemyLayer ) 
+			if (Physics.Raycast (transform.position+Vector3.up*2, direction.normalized,out hit , range, ~lm)/* && Vector3.Angle(direction, transform.forward) < fov / 2f*/ && hit.transform.gameObject.layer == enemyLayer ) 
 			{
 				brain.isStopped = true;
 				nextShoot = Time.time + reflexTime;
@@ -241,7 +242,7 @@ public class Npc : MonoBehaviour {
 			{
 				brain.SetDestination(target.position);
 				brain.isStopped = false;
-				if(reinforcment !=  null)reinforcment.SetActive(true);
+				if(reinforcment !=  null)reinforcment.SetActive(true); //Call Backup Now !
 			}
 		}
 	}
@@ -249,7 +250,7 @@ public class Npc : MonoBehaviour {
 	{
 		for (int i = 0; i < bulletQuantity; i++)
 			{
-				Instantiate(bullet,muzzle.position,Quaternion.LookRotation(target.position-muzzle.position)*Quaternion.Euler(new Vector3(Random.Range(-dispersion,dispersion),Random.Range(-dispersion,dispersion),Random.Range(-dispersion,dispersion))/*+muzzle.eulerAngles*/),null);
+				Instantiate(bullet,muzzle.position,Quaternion.LookRotation(target.position+Vector3.up-muzzle.position)*Quaternion.Euler(new Vector3(Random.Range(-dispersion,dispersion),Random.Range(-dispersion,dispersion),Random.Range(-dispersion,dispersion))/*+muzzle.eulerAngles*/),null);
 			}
 		//anim.Play("Shoot");
 		if(part != null)part.Play();
@@ -260,7 +261,7 @@ public class Npc : MonoBehaviour {
 	
 	private void MakeAMove()
 	{
-		anim.SetBool("isDucking", (Random.value > 0.5f));
+		anim.SetBool("isDucking", (Random.value > duckTendancy));
 		index = Random.Range (0, swearClip.Length);
 		mouth.clip = swearClip[index];
 		mouth.Play();

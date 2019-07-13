@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LevelPart
   - Dummie
+  - Breakable
   layers:
   - Default
   - TransparentFX

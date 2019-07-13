@@ -25,12 +25,14 @@ public class BulletScript : MonoBehaviour {
 	{
 		if(decalHitWall)
 		{
+			Damageable target = hit.transform.GetComponent<Damageable> ();
+			Breakable target2 = hit.transform.GetComponent<Breakable> ();
 			if(hit.transform.tag == "LevelPart")
 			{
 				Instantiate(decalHitWall, hit.point + hit.normal * floatInfrontOfWall, Quaternion.LookRotation(hit.normal));
-				Destroy(gameObject,0.05f);
+				Destroy(gameObject,0.25f);
 			}
-			Damageable target = hit.transform.GetComponent<Damageable> ();
+			
 			if(hit.transform.tag == "Dummie" && target != null)
 				{
 				Instantiate(bloodEffect, hit.point, Quaternion.LookRotation(hit.normal));
@@ -46,22 +48,32 @@ public class BulletScript : MonoBehaviour {
 			if(hit.transform.tag == "Untagged")
 			{
 				Instantiate(sparkEffect, hit.point + hit.normal * floatInfrontOfWall, Quaternion.LookRotation(hit.normal));
-				Destroy(gameObject,0.05f);
+				Destroy(gameObject,0.25f);
 			}
-					
-					
+			
+			if(hit.transform.tag == "Breakable" && target2 != null)
+			{
+				Instantiate(target2.spark, hit.point, Quaternion.LookRotation(hit.normal));
+			}
+						
 					
 					
 			if (target != null)
 				{
 				target.TakeDamage(damage, damageArmor);
 				}
+			if (target2 != null)
+				{
+				target2.TakeDamage(damageArmor);
+				}
 				
 		}
 				
 	}		
-			Destroy(gameObject,0.05f);
-		}
+		Destroy(gameObject,0.25f);
+	}
+	
+	
 	void OnDestroy(){
 		if (hit.rigidbody != null) 
 					{

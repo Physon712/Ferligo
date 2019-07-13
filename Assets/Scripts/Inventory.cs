@@ -122,7 +122,7 @@ public class Inventory : MonoBehaviour {
 			dead = true;
 			
 			gameObject.SetActive(false);
-			Instantiate(corps,transform.position-Vector3.up,transform.rotation);
+			Instantiate(corps,transform.position,transform.rotation);
 		}
 	}
 	/*
