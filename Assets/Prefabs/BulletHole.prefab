@@ -87,6 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4048343679278488}
   - component: {fileID: 5871408751622590064}
+  - component: {fileID: 6528021163850942718}
   m_Layer: 0
   m_Name: BulletHole
   m_TagString: Untagged
@@ -123,6 +124,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 30
+--- !u!114 &6528021163850942718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672059315757430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f5f891d2afdde4da7f88203f7084d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axes: {x: 0, y: 0, z: 360}
 --- !u!1 &1876028567241138
 GameObject:
   m_ObjectHideFlags: 0

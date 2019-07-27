@@ -1365,6 +1365,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7176902550667399034, guid: e90904f2418a08e47a946b70812501d9,
+        type: 3}
+      propertyPath: maxArmor
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176902550667399034, guid: e90904f2418a08e47a946b70812501d9,
+        type: 3}
+      propertyPath: armor
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176902550667399034, guid: e90904f2418a08e47a946b70812501d9,
+        type: 3}
+      propertyPath: ammo.Array.data[4]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176902550667399034, guid: e90904f2418a08e47a946b70812501d9,
+        type: 3}
+      propertyPath: ammo.Array.data[1]
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e90904f2418a08e47a946b70812501d9, type: 3}
 --- !u!1001 &766006172

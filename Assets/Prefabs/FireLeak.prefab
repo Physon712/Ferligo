@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4372980508675043572}
   - component: {fileID: 3124207484230492957}
   - component: {fileID: 6434268765714664319}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FireLeak
   m_TagString: Untagged
   m_Icon: {fileID: 0}

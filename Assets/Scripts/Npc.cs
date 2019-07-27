@@ -43,6 +43,7 @@ public class Npc : MonoBehaviour {
 	RaycastHit hit;
 	public float nextShoot = 0f;
 	public float reactionLeft;
+	public bool deaf = false;
 	
 	int shootLeft;
 	float reactionTime;
@@ -173,7 +174,7 @@ public class Npc : MonoBehaviour {
 		
 		if(AiState == 0)//Unaware
 		{
-			if (Physics.Raycast (transform.position+Vector3.up*2, direction.normalized,out hit , range, ~lm) && Vector3.Angle(direction, transform.forward) < fov / 2f) 
+			if (Physics.Raycast (transform.position+Vector3.up*1.8f, direction.normalized,out hit , range, ~lm) && Vector3.Angle(direction, transform.forward) < fov / 2f) 
 			{
 				if(hit.transform.gameObject.layer == enemyLayer)
 				{
@@ -186,7 +187,7 @@ public class Npc : MonoBehaviour {
 		}
 		if(AiState == 1)//Engaging
 		{
-			if (Physics.Raycast (transform.position+Vector3.up*2, direction.normalized,out hit , range, ~lm)) 
+			if (Physics.Raycast (transform.position+Vector3.up*1.8f, direction.normalized,out hit , range, ~lm)) 
 			{	
 				
 				if(hit.transform.gameObject.layer == enemyLayer)

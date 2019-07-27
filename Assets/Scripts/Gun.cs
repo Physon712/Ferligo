@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 public class Gun : MonoBehaviour {
- 
+	
 	public Transform muzzle;
 	public GameObject bullet;
 	public AudioSource gunShoot;
@@ -14,6 +14,7 @@ public class Gun : MonoBehaviour {
 	public MouseLook mouseLookScript;
 	public Camera fpscam;
 	public Camera cam;
+	public GameObject arm;
 	public ParticleSystem part;
 	public ParticleSystem part2;
 	public Inventory ammoSatchel;
@@ -44,7 +45,10 @@ public class Gun : MonoBehaviour {
 		/*if(ammoLeft == 712)*/ammoLeft = magSize;
 		ammoText = GameObject.Find("AmmoCounter").GetComponent<TextMeshProUGUI>();
 		zOffset = transform.localPosition.z;
+		arm.GetComponent<SkinnedMeshRenderer> ().materials = ammoSatchel.armorMaterials;
+		
 	}
+	
 
 	// Update is called once per frame
 	void Update () {

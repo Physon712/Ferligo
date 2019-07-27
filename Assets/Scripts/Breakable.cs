@@ -16,7 +16,7 @@ public class Breakable : MonoBehaviour
 			 if(health <= 0 && !dead)
 			{
 				Destroy(gameObject);
-				Instantiate(wasted,transform.position,transform.rotation);
+				if(wasted != null)Instantiate(wasted,transform.position,transform.rotation);
 				dead = true;
 			}
 		}

@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scene/Splash.unity
+    guid: beefb6e5be5ccfb4495c226aaf310b18
+  - enabled: 1
+    path: Assets/Scene/Vertigo.unity
+    guid: bbc0cdb934c58e549b3ec38d928c88fd
   m_configObjects: {}

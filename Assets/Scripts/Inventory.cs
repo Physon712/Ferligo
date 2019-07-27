@@ -13,6 +13,11 @@ public class Inventory : MonoBehaviour {
 	public Animator anim;
 	public float health = 100f;
 	public float armor = 100f;
+	public float maxArmor = 100f;
+	public Material[] armorMaterials;
+	public bool isThereOxygen = true;
+	public float hypoOxyRate = 1f;
+	private float nextOxyPain = 0f;
 	bool dead = false;
 	public GameObject corps;
 	public PlayerMovement playMove;
@@ -86,13 +91,22 @@ public class Inventory : MonoBehaviour {
 			weapon[currentWeapon].SetActive(true);
 			//anim.Play("Equip");
 		}
-		if(armor > 200f)
+		if(armor > maxArmor)
 		{
-			armor = 200f;
+			armor = maxArmor;
 		}
 		if(health > 100f)
 		{
 			health = 100f;
+		}
+		
+		if(armor <= 0 && !isThereOxygen)
+		{
+			if(nextOxyPain <= Time.time)
+			{
+				GetHurt(1f,0f);
+				nextOxyPain = Time.time + hypoOxyRate;
+			}
 		}
 		//ammoText.text = ammo[weapon[currentWeapon].transform.GetComponent<Gun>().ammoType].ToString();
 		healthText.text = health.ToString() + " | "  + armor.ToString();

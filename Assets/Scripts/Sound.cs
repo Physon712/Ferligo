@@ -16,7 +16,7 @@ public class Sound : MonoBehaviour
 			if (subject != null)
 			{
 
-				if(subject.AiState != 3 && subject.AiState != 2)
+				if(subject.AiState != 3 && subject.AiState != 2 && !subject.deaf)
 				{
 					subject.AiState = 1;
 					//subject.RotateTowards(GameObject.Find("Player").transform);

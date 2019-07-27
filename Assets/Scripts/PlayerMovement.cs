@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour {
 	[HideInInspector]public Vector3 cameraPosition;
 	[HideInInspector]public float jetpackFuel;
 	private float nextJet = 0f;
+	private bool hasLanded =true;
 	/*
 	 * Getting the Players rigidbody component.
 	 * And grabbing the mainCamera from Players child transform.
@@ -61,16 +62,21 @@ public class PlayerMovement : MonoBehaviour {
 				}
 			
 		}
-		rb.velocity = new Vector3 (
-			horizontalMovement.x,
-			rb.velocity.y,
-			horizontalMovement.y
-		);
+		rb.velocity = new Vector3 (horizontalMovement.x,rb.velocity.y,horizontalMovement.y);
 		if (grounded){
 			rb.velocity = Vector3.SmoothDamp(rb.velocity,
 				new Vector3(0,rb.velocity.y,0),
 				ref slowdownV,
 				deaccelerationSpeed);
+			if(!hasLanded)
+			{
+				anim.Play("Hands_jump");
+				hasLanded = true;
+			}
+		}
+		else
+		{
+			hasLanded = false;
 		}
 
 		if (grounded) {

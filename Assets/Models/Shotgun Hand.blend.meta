@@ -172,8 +172,8 @@ ModelImporter:
       name: Idle
       takeName: ArmatureAction
       internalID: 7501937803213740051
-      firstFrame: 31
-      lastFrame: 32
+      firstFrame: 120
+      lastFrame: 122
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -230,7 +230,7 @@ ModelImporter:
       name: Action
       takeName: ArmatureAction
       internalID: 7176209919637214875
-      firstFrame: 115
+      firstFrame: 120
       lastFrame: 140
       wrapMode: 0
       orientationOffsetY: 0

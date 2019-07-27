@@ -18,6 +18,8 @@ public class BulletScript : MonoBehaviour {
 
 	public LayerMask ignoreLayer;
 	public LayerMask mask;
+	
+	private bool hasKicked = false;
 
 	void Start () {
 
@@ -73,12 +75,21 @@ public class BulletScript : MonoBehaviour {
 		Destroy(gameObject,0.25f);
 	}
 	
-	
-	void OnDestroy(){
-		if (hit.rigidbody != null) 
+	void Update(){
+		if(!hasKicked)
+		{
+			if (hit.rigidbody != null) 
 					{
 					hit.rigidbody.AddForce (-hit.normal * 1000f);
 					}
+			hasKicked = true;
+		}
+		
+	}
+	
+	
+	void OnDestroy(){
+		
 	}
 }
 

@@ -6,12 +6,18 @@ public class MouseLook : MonoBehaviour {
 
 	[HideInInspector]
 	public Transform myCamera;
+	public float azimuth = 0f;
 	/*
 	 * Hiding the cursor.
 	 */
 	void Awake(){
 		Cursor.lockState = CursorLockMode.Locked;
 		myCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
+		
+	}
+	
+	void Start(){
+		wantedYRotation = azimuth;
 	}
 
 	/*
@@ -30,6 +36,8 @@ public class MouseLook : MonoBehaviour {
 
 		if(GetComponent<PlayerMovement>().currentSpeed > 1)
 			HeadMovement ();
+		
+		ApplyingStuff();
 
 	}
 
@@ -66,18 +74,6 @@ public class MouseLook : MonoBehaviour {
 * FixedUpdate()
 * If aiming set the mouse sensitvity from our variables and vice versa.
 */
-void FixedUpdate(){
-
-	/*
-	 * Reduxing mouse sensitvity if we are aiming.
-	 */
-
-
-	ApplyingStuff();
-
-
-}
-
 
 private float rotationYVelocity, cameraXVelocity;
 [Tooltip("Speed that determines how much camera rotation will lag behind mouse movement.")]
@@ -118,10 +114,11 @@ void MouseInputMovement(){
  */
 void ApplyingStuff(){
 
-	currentYRotation = Mathf.SmoothDamp(currentYRotation, wantedYRotation, ref rotationYVelocity, yRotationSpeed);
-	currentCameraXRotation = Mathf.SmoothDamp(currentCameraXRotation, wantedCameraXRotation, ref cameraXVelocity, xCameraSpeed);
-
-
+	currentYRotation = Mathf.SmoothDamp(currentYRotation, wantedYRotation, ref rotationYVelocity, yRotationSpeed*(Time.deltaTime*50));
+	currentCameraXRotation = Mathf.SmoothDamp(currentCameraXRotation, wantedCameraXRotation, ref cameraXVelocity, xCameraSpeed*(Time.deltaTime*50));
+	
+	weapon.transform.rotation = Quaternion.Euler(currentCameraXRotation, currentYRotation, 0);
+	
 	transform.rotation = Quaternion.Euler(0, currentYRotation, 0);
 	myCamera.localRotation = Quaternion.Euler(currentCameraXRotation, 0, zRotation);
 	
@@ -131,7 +128,7 @@ void ApplyingStuff(){
 private Vector2 velocityGunFollow;
 private float gunWeightX,gunWeightY;
 [Tooltip("Current weapon that player carries.")]
-[HideInInspector]
+//[HideInInspector]
 public GameObject weapon;
 
 
