@@ -17,6 +17,7 @@ public class Radio : MonoBehaviour
 		
         speaker = GetComponent<AudioSource>();
 		displayText = GameObject.Find("DiscordDisplayer").GetComponent<TextMeshProUGUI>();
+		
     }
 
     // Update is called once per frame
@@ -34,6 +35,7 @@ public class Radio : MonoBehaviour
 	
 	public void Play()
 	{
+		displayText = GameObject.Find("DiscordDisplayer").GetComponent<TextMeshProUGUI>();
 		speaker.clip = clip;
 		speaker.Play();
 	}

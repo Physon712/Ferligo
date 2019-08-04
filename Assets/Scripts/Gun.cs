@@ -9,6 +9,7 @@ public class Gun : MonoBehaviour {
 	public Transform muzzle;
 	public GameObject bullet;
 	public AudioSource gunShoot;
+	public AudioSource gunEmpty;
 	public AudioSource gunReload;
 	public Animator anim;
 	public MouseLook mouseLookScript;
@@ -43,9 +44,17 @@ public class Gun : MonoBehaviour {
 	public int ammoLeft = 712;
 	void Start (){
 		/*if(ammoLeft == 712)*/ammoLeft = magSize;
-		ammoText = GameObject.Find("AmmoCounter").GetComponent<TextMeshProUGUI>();
+		
 		zOffset = transform.localPosition.z;
-		arm.GetComponent<SkinnedMeshRenderer> ().materials = ammoSatchel.armorMaterials;
+		
+		
+	}
+	
+	void OnEnable(){
+		
+		arm.GetComponent<SkinnedMeshRenderer> ().materials = ammoSatchel.armorsMaterials[ammoSatchel.armorStyle].materials;
+		crosshair.GetComponent<SpriteRenderer> ().color = ammoSatchel.armorCrosshairColor[ammoSatchel.armorStyle];
+		ammoText = GameObject.Find("AmmoCounter").GetComponent<TextMeshProUGUI>();
 		
 	}
 	
@@ -106,17 +115,25 @@ public class Gun : MonoBehaviour {
 
 	private void Shoot()
 	{
-		if(shootDelay <= 0 && ammoLeft > 0)
+		if(shootDelay <= 0)
 		{
-			for (int i = 0; i < bulletQuantity; i++)
+			if(ammoLeft > 0)
 			{
-				Fire();
-			}
+				for (int i = 0; i < bulletQuantity; i++)
+				{
+					Fire();
+				}
 			
 			transform.Rotate(-Random.Range(0f,recoil), Random.Range(-recoil/2,recoil/2),Random.Range(-recoil,recoil));
 			transform.Translate(0f,0f,-kick);
 			shootDelay = firerate;
 			ammoLeft--;
+			}
+			else
+			{
+				if(gunEmpty != null)gunEmpty.Play();
+				shootDelay = firerate*2;
+			}
 		}
 	}
 	
@@ -125,7 +142,7 @@ public class Gun : MonoBehaviour {
 		Instantiate(bullet,muzzle.position,Quaternion.Euler(new Vector3(Random.Range(-dispersion,dispersion),Random.Range(-dispersion,dispersion),Random.Range(-dispersion,dispersion))+muzzle.eulerAngles),null);
 
 		mouseLookScript.currentCameraXRotation -= punch;
-		if(shootAnimation != "")
+		if(shootAnimation != "" && !anim.GetBool("isAiming"))
 		{
 			anim.Play(shootAnimation);
 		}

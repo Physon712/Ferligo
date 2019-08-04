@@ -30,7 +30,7 @@ public class Explosion : MonoBehaviour
 		Damageable target = nearbyObject.GetComponent<Damageable> ();
 			if (target != null)
 			{
-			target.TakeDamage(damage*damageMultiplierBadguy, damage*damageMultiplierBadguy);
+			target.TakeDamage(damage*damageMultiplierBadguy/10, damage*damageMultiplierBadguy/10);
 			if(dummyBlood != null)Instantiate(dummyBlood,target.transform.position+Vector3.up,target.transform.rotation);
 			}
 		Breakable target2 = nearbyObject.GetComponent<Breakable> ();

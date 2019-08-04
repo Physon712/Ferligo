@@ -18,6 +18,7 @@ public class AmmoPickUp : MonoBehaviour{
 
 	public string text = "Picked up Something";
 	
+	public string soundName = "PickUp";
 	public AudioSource sound;
 	
 	private GameObject pickedText;
@@ -30,12 +31,13 @@ public class AmmoPickUp : MonoBehaviour{
 	{
 		rb = gameObject.GetComponent<Rigidbody>();
 		if(GameObject.Find("Player"))inventory = GameObject.Find("Player").GetComponent<Inventory>();
+		if(GameObject.Find(soundName))sound = GameObject.Find(soundName).GetComponent<AudioSource>();
 		//pickedText = GameObject.Find("PickedUpText");
 	}
 	void OnTriggerEnter(Collider other)
 	{
 	
-		if(!rb.isKinematic && ok && other.gameObject.name == "Player" && inventory.ammo[ammoType] < inventory.maxAmmo[ammoType])
+		if(!rb.isKinematic && ok && other.gameObject.name == "Player" && (ammoQuantity == 0 ||inventory.ammo[ammoType] < inventory.maxAmmo[ammoType]) && (armor == 0f ||inventory.armor != inventory.maxArmor) && (health == 0f ||inventory.health != 100f))
 		{
 			ok = false;
 			Destroy(gameObject);
@@ -55,7 +57,7 @@ public class AmmoPickUp : MonoBehaviour{
 				}
 				
 			}
-			if(obsoleteWeapon != -1)inventory.weapponPossesion[obsoleteWeapon] = true;
+			if(obsoleteWeapon != -1)inventory.weapponPossesion[obsoleteWeapon] = false;
 			//pickedText.GetComponent<TextMeshProUGUI>().text = text;
 			//pickedText.GetComponent<Animator>().Play("pickup",0,0f);
 			

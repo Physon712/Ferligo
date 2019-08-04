@@ -14,7 +14,10 @@ public class Inventory : MonoBehaviour {
 	public float health = 100f;
 	public float armor = 100f;
 	public float maxArmor = 100f;
-	public Material[] armorMaterials;
+	public int armorStyle;
+	public MaterialList[] armorsMaterials;
+	public Color[] armorCrosshairColor;
+	public GameObject[] hud;
 	public bool isThereOxygen = true;
 	public float hypoOxyRate = 1f;
 	private float nextOxyPain = 0f;
@@ -182,5 +185,21 @@ public class Inventory : MonoBehaviour {
 		
 	}
         */
+	[System.Serializable]
+	 public class MaterialList
+	{
+     public Material[] materials;
+	}
+	
+	public void SwitchArmor(int armor)
+	{
+		hud[armorStyle].SetActive(false);
+		hud[armor].SetActive(true);
+		healthText = GameObject.Find("StatusReporter").GetComponent<TextMeshProUGUI>();
+		armorStyle = armor;
+		weapon[currentWeapon].SetActive(false);
+		weapon[currentWeapon].SetActive(true);
+		
+	}
 	
 }
