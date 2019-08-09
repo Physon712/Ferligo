@@ -5359,9 +5359,9 @@ GameObject:
   - component: {fileID: 742445174125645548}
   - component: {fileID: 742445174125645459}
   - component: {fileID: 742445174125645458}
-  - component: {fileID: 742445174125645550}
+  - component: {fileID: 6164034767343518695}
   m_Layer: 2
-  m_Name: Plane
+  m_Name: AR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5485,15 +5485,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
   ammoType: 1
-  ammoQuantity: 32
+  ammoQuantity: 24
   health: 0
   armor: 0
   weapon: 3
   obsoleteWeapon: -1
   upgradedWeapon: -1
   text: Picked up Something
+  soundName: PickUp
   sound: {fileID: 0}
---- !u!114 &742445174125645550
+--- !u!114 &6164034767343518695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5502,9 +5503,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 742445174125645462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d667c2d4d45df4249b86887aebc5bd89, type: 3}
+  m_Script: {fileID: 11500000, guid: 553e8bcc97fc3d14abfa14242a9ede42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &1608462465563784413
 GameObject:
   m_ObjectHideFlags: 0
@@ -6261,25 +6263,36 @@ MonoBehaviour:
   anim: {fileID: 7069623019921731416}
   mouth: {fileID: 4923737905370260880}
   deadthClip:
-  - {fileID: 8300000, guid: c1b008d9c8156b34d9df0e190b230238, type: 3}
-  - {fileID: 8300000, guid: a42a66b22d297a14293ffe78b80e2bfa, type: 3}
-  - {fileID: 8300000, guid: fc401018b9107ac4fa743dbad2740287, type: 3}
-  - {fileID: 8300000, guid: 59f597787f9cc2945861b5797c96565f, type: 3}
+  - {fileID: 8300000, guid: 5beff7a9c34463b4493e784b2baeb4ed, type: 3}
+  - {fileID: 8300000, guid: 038dcb72ec183694c9aa5f93134f4765, type: 3}
+  - {fileID: 8300000, guid: a485081f7e5a39244a6d179d142352a2, type: 3}
+  - {fileID: 8300000, guid: 99cec55c4ab37d64199d1424420b93fe, type: 3}
+  - {fileID: 8300000, guid: 9624da33ab128e343a2a66ad0ef9f5a4, type: 3}
   swearClip:
-  - {fileID: 8300000, guid: 774959fba43871f4c954f32417a784f9, type: 3}
-  - {fileID: 8300000, guid: 89ee93ec9913df0408c1b7547e9652bf, type: 3}
-  - {fileID: 8300000, guid: 2e588d0bf24ebae44b34e287a9af03d1, type: 3}
-  - {fileID: 8300000, guid: 96ee8b66e5dc6944dabfac8882ba5584, type: 3}
-  - {fileID: 8300000, guid: 2c0ec6b5ff7530041a90b85df2ba3d71, type: 3}
-  - {fileID: 8300000, guid: 1441d668070798a47b6487a7999c62e3, type: 3}
-  - {fileID: 8300000, guid: ab4d5ad16a83e7b43be33201bac27df5, type: 3}
-  - {fileID: 8300000, guid: eed33e8f1a53b7244a990ea3594b1e22, type: 3}
-  - {fileID: 8300000, guid: 3d089216d54dccd44b0c057f60cb891f, type: 3}
-  - {fileID: 8300000, guid: 363425d209c94484bac5054fdf148195, type: 3}
+  - {fileID: 8300000, guid: 872e97a8633e7be44b5160270da396f1, type: 3}
+  - {fileID: 8300000, guid: b36edfd2cf9d89a4d93779d4f70c3f09, type: 3}
+  - {fileID: 8300000, guid: 89c365d95eed38146a1b7f080d2445e3, type: 3}
+  - {fileID: 8300000, guid: bebf6958b9540f94fbfa20dee6d35cc8, type: 3}
+  - {fileID: 8300000, guid: 12ad769d1b66f4e439cefedf9fdfcede, type: 3}
+  - {fileID: 8300000, guid: aebfed6f47361474c8f05f0792e13bb3, type: 3}
+  - {fileID: 8300000, guid: be93527082696f744a5487aeced93491, type: 3}
+  - {fileID: 8300000, guid: 8142d7d893dd10244b1f3b4ad3df0beb, type: 3}
+  - {fileID: 8300000, guid: aadf3bbe755cde94d96a39204e75f12f, type: 3}
+  - {fileID: 8300000, guid: 9c9c1018ff89625428fe6d03d3759a67, type: 3}
+  - {fileID: 8300000, guid: 5336a5bda7c6f774f89fe3cff0e6a5e4, type: 3}
+  - {fileID: 8300000, guid: 6b0b8151a7d702446b0593bf65d1929d, type: 3}
+  - {fileID: 8300000, guid: 0a9c4ae54f2f313409837dc05112e6cd, type: 3}
+  - {fileID: 8300000, guid: 0e1dffebcf0dec9468a48d756f2969fc, type: 3}
+  - {fileID: 8300000, guid: d1c628822d16a664abd30302ba6e9c55, type: 3}
+  - {fileID: 8300000, guid: 202edf96b0f389f42b3453b8142b707f, type: 3}
   painClip:
-  - {fileID: 8300000, guid: f50d1f9b2e669404d9122f468a5bc664, type: 3}
-  - {fileID: 8300000, guid: 0f2eaebda784afd448726069b8820234, type: 3}
-  - {fileID: 8300000, guid: c8025671f22e5ab40b5d4ff4e9444dda, type: 3}
+  - {fileID: 8300000, guid: da464cc2ae460f74b900a1a6ffd40aec, type: 3}
+  - {fileID: 8300000, guid: 54f5fce609b694d4799413b33dc1be30, type: 3}
+  - {fileID: 8300000, guid: 0f6ea4ceda6553946816af6dfce089c8, type: 3}
+  - {fileID: 8300000, guid: bad0c8fe73914ab4ab736cb9f596703f, type: 3}
+  - {fileID: 8300000, guid: 271c20592aee4254c86ad294e972bcca, type: 3}
+  - {fileID: 8300000, guid: 854cf9007532712469b8ebfcda93b992, type: 3}
+  - {fileID: 8300000, guid: d74ebf6a7c3e0f24f9628f5387079c29, type: 3}
   callbackupClip:
   - {fileID: 8300000, guid: 363425d209c94484bac5054fdf148195, type: 3}
   - {fileID: 8300000, guid: 0f5e2240c194b3e4aa0172e90e577919, type: 3}
@@ -6311,6 +6324,7 @@ MonoBehaviour:
   reinforcment: {fileID: 0}
   nextShoot: 0
   reactionLeft: 0
+  deaf: 0
 --- !u!114 &3625591175795815809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7049,6 +7063,17 @@ PrefabInstance:
       propertyPath: CollisionModule.m_Bounce.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09ac9be8d8f66f74b83c989edbed16a6, type: 2}
+    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2534964839176971238, guid: f1fb4f818bb9a74448767f2cb7158904,
+        type: 3}
     - target: {fileID: 4057249018905296, guid: 076237d2a9082d94cbe891309133eedc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.07
@@ -7093,17 +7118,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 09ac9be8d8f66f74b83c989edbed16a6, type: 2}
-    - target: {fileID: 199425022322280098, guid: 076237d2a9082d94cbe891309133eedc,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 2534964839176971238, guid: f1fb4f818bb9a74448767f2cb7158904,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 076237d2a9082d94cbe891309133eedc, type: 3}
 --- !u!198 &616428165995311753 stripped

@@ -713,6 +713,7 @@ MonoBehaviour:
   reinforcment: {fileID: 0}
   nextShoot: 0
   reactionLeft: 0
+  deaf: 0
 --- !u!114 &1311206537572047996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1583,7 +1584,7 @@ GameObject:
   - component: {fileID: 4870198355249027150}
   - component: {fileID: 4870198355249027145}
   - component: {fileID: 4870198355249027138}
-  - component: {fileID: 7146321882567746294}
+  - component: {fileID: 2816552801910399340}
   m_Layer: 2
   m_Name: Shotgun (1)
   m_TagString: Untagged
@@ -1703,6 +1704,7 @@ MonoBehaviour:
   obsoleteWeapon: -1
   upgradedWeapon: -1
   text: Picked up Something
+  soundName: PickUp
   sound: {fileID: 0}
 --- !u!135 &4870198355249027138
 SphereCollider:
@@ -1717,7 +1719,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.9314462
   m_Center: {x: -0.026765492, y: -0.008888628, z: -0.3007612}
---- !u!114 &7146321882567746294
+--- !u!114 &2816552801910399340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1726,9 +1728,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4870198355249027147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d667c2d4d45df4249b86887aebc5bd89, type: 3}
+  m_Script: {fileID: 11500000, guid: 553e8bcc97fc3d14abfa14242a9ede42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &4870198355884265011
 GameObject:
   m_ObjectHideFlags: 0

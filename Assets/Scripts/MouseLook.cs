@@ -33,10 +33,10 @@ public class MouseLook : MonoBehaviour {
 
 		}
 		deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
-
+/*
 		if(GetComponent<PlayerMovement>().currentSpeed > 1)
 			HeadMovement ();
-		
+*/		
 		ApplyingStuff();
 
 	}

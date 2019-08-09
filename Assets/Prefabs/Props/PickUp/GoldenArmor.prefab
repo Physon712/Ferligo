@@ -485,7 +485,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
-  hud: {fileID: 0}
   maxArmor: 2000
   armor: 2000
   style: 5
@@ -630,9 +629,9 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a88aeff4e60f83543b25ac7d62b244ee, type: 2}
   - {fileID: 2100000, guid: b33612a23fc2b494ca1438cdc88f88d3, type: 2}
-  - {fileID: 2100000, guid: f9081407c4589cd46897300eb2d4c5a7, type: 2}
+  - {fileID: 2100000, guid: a88aeff4e60f83543b25ac7d62b244ee, type: 2}
+  - {fileID: 2100000, guid: dad6bf26b575a334daa84c637938ef67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

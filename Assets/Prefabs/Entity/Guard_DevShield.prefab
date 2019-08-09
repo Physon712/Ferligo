@@ -68,7 +68,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2833595, y: 1.0000002, z: 0.26672488}
   m_Center: {x: 0.11168272, y: 0.000005693844, z: 0.88377935}
---- !u!114 &6266610577820426657
+--- !u!114 &2413136920192226884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,9 +77,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1028568153462662637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d667c2d4d45df4249b86887aebc5bd89, type: 3}
+  m_Script: {fileID: 11500000, guid: 553e8bcc97fc3d14abfa14242a9ede42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!114 &7332059563083092546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   spark: {fileID: 6137636386465208245, guid: 540e3b76fc6fe19478f4cd6692ecda12, type: 3}
-  wasted: {fileID: 0}
+  wasted: {fileID: 6874454856450020517, guid: cc73dec965470134083558f8c5e56f5b, type: 3}
 --- !u!1 &1209510970938831145
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +810,7 @@ MonoBehaviour:
   reinforcment: {fileID: 0}
   nextShoot: 0
   reactionLeft: 0
+  deaf: 0
 --- !u!114 &2154702331737174493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1301,11 +1303,11 @@ GameObject:
   - component: {fileID: 3057765640846218242}
   - component: {fileID: 3057765640846218241}
   - component: {fileID: 3057765640846218247}
-  - component: {fileID: 3057765640846218243}
   - component: {fileID: 6774696899890320071}
   - component: {fileID: 7357041826034261566}
   - component: {fileID: 7635794292293888889}
   - component: {fileID: 2624894494336579891}
+  - component: {fileID: 25103522249740578}
   m_Layer: 2
   m_Name: Pistol (1)
   m_TagString: Untagged
@@ -1387,18 +1389,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.2049603, y: 0.8485685, z: 0.2335146}
   m_Center: {x: 0.8697479, y: -0.2816081, z: 0.0000008222935}
---- !u!114 &3057765640846218243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3057765640846218245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d667c2d4d45df4249b86887aebc5bd89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &6774696899890320071
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1516,6 +1506,7 @@ MonoBehaviour:
   obsoleteWeapon: -1
   upgradedWeapon: 2
   text: Picked up Something
+  soundName: PickUp
   sound: {fileID: 0}
 --- !u!54 &7635794292293888889
 Rigidbody:
@@ -1546,6 +1537,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.1024804
   m_Center: {x: 1, y: 0, z: -0.000000048485106}
+--- !u!114 &25103522249740578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3057765640846218245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 553e8bcc97fc3d14abfa14242a9ede42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &3057765640987212263
 GameObject:
   m_ObjectHideFlags: 0

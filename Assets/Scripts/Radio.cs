@@ -16,7 +16,7 @@ public class Radio : MonoBehaviour
     {
 		
         speaker = GetComponent<AudioSource>();
-		displayText = GameObject.Find("DiscordDisplayer").GetComponent<TextMeshProUGUI>();
+		if(GameObject.Find("DiscordDisplayer") != null)displayText = GameObject.Find("DiscordDisplayer").GetComponent<TextMeshProUGUI>();
 		
     }
 
@@ -25,11 +25,11 @@ public class Radio : MonoBehaviour
     {
         if(speaker.isPlaying)
 		{
-			displayText.text = "Inc. Trans. : " + name;
+			if(displayText != null)displayText.text = "Inc. Trans. : " + name;
 		}
 		else
 		{
-			displayText.text = "";
+			if(displayText != null)displayText.text = "";
 		}
     }
 	

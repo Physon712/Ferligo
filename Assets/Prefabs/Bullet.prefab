@@ -60,4 +60,4 @@ MonoBehaviour:
     m_Bits: 260
   mask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 14647

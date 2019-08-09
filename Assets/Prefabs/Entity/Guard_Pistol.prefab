@@ -121,11 +121,11 @@ GameObject:
   - component: {fileID: 1361097838}
   - component: {fileID: 1361097837}
   - component: {fileID: 1361097835}
-  - component: {fileID: 1361097839}
   - component: {fileID: 8389031045131874987}
   - component: {fileID: 5509638651952152146}
   - component: {fileID: 4870809942347074325}
   - component: {fileID: 1009406670279235935}
+  - component: {fileID: 7569092447776789920}
   m_Layer: 2
   m_Name: Pistol (1)
   m_TagString: Untagged
@@ -207,18 +207,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.2049603, y: 0.8485685, z: 0.2335146}
   m_Center: {x: 0.8697479, y: -0.2816081, z: 0.0000008222935}
---- !u!114 &1361097839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361097833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d667c2d4d45df4249b86887aebc5bd89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &8389031045131874987
 AudioSource:
   m_ObjectHideFlags: 0
@@ -239,7 +227,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 25
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -336,6 +324,7 @@ MonoBehaviour:
   obsoleteWeapon: -1
   upgradedWeapon: 2
   text: Picked up Something
+  soundName: PickUp
   sound: {fileID: 0}
 --- !u!54 &4870809942347074325
 Rigidbody:
@@ -366,6 +355,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.1024804
   m_Center: {x: 1, y: 0, z: -0.000000048485106}
+--- !u!114 &7569092447776789920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361097833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 553e8bcc97fc3d14abfa14242a9ede42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &738907397975023144
 GameObject:
   m_ObjectHideFlags: 0
@@ -5745,6 +5747,7 @@ MonoBehaviour:
   reinforcment: {fileID: 0}
   nextShoot: 0
   reactionLeft: 0
+  deaf: 0
 --- !u!114 &4001545012449792433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5970,7 +5973,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -3334933058281800568, guid: 06a564cadb0a4d34fae5b55498f87183, type: 3}
+  m_Mesh: {fileID: -3334933058281800568, guid: 317f2fac61088b74e96948a0c9186096, type: 3}
   m_Bones:
   - {fileID: 9196296384953514694}
   - {fileID: 5629688123554157016}

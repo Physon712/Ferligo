@@ -43,7 +43,7 @@ public class Gun : MonoBehaviour {
 	private float zOffset;
 	public int ammoLeft = 712;
 	void Start (){
-		/*if(ammoLeft == 712)*/ammoLeft = magSize;
+		///*if(ammoLeft == 712)*/ammoLeft = magSize;
 		
 		zOffset = transform.localPosition.z;
 		
@@ -51,10 +51,9 @@ public class Gun : MonoBehaviour {
 	}
 	
 	void OnEnable(){
-		
 		arm.GetComponent<SkinnedMeshRenderer> ().materials = ammoSatchel.armorsMaterials[ammoSatchel.armorStyle].materials;
 		crosshair.GetComponent<SpriteRenderer> ().color = ammoSatchel.armorCrosshairColor[ammoSatchel.armorStyle];
-		ammoText = GameObject.Find("AmmoCounter").GetComponent<TextMeshProUGUI>();
+		if(GameObject.Find("AmmoCounter") != null)ammoText = GameObject.Find("AmmoCounter").GetComponent<TextMeshProUGUI>();
 		
 	}
 	
@@ -106,7 +105,7 @@ public class Gun : MonoBehaviour {
 		{
 			Reload();
 		}
-		ammoText.text = ammoLeft.ToString() + " | " + ammoSatchel.ammo[ammoType].ToString();
+		if(ammoText != null)ammoText.text = ammoLeft.ToString() + " | " + ammoSatchel.ammo[ammoType].ToString();
 	}
 	
 	void FixedUpdate(){
@@ -123,7 +122,9 @@ public class Gun : MonoBehaviour {
 				{
 					Fire();
 				}
-			
+			if(gunShoot != null)gunShoot.Play();
+			if(part != null)part.Play();
+			if(part2 != null)part2.Play();
 			transform.Rotate(-Random.Range(0f,recoil), Random.Range(-recoil/2,recoil/2),Random.Range(-recoil,recoil));
 			transform.Translate(0f,0f,-kick);
 			shootDelay = firerate;
@@ -132,7 +133,7 @@ public class Gun : MonoBehaviour {
 			else
 			{
 				if(gunEmpty != null)gunEmpty.Play();
-				shootDelay = firerate*2;
+				shootDelay = 0.2f;
 			}
 		}
 	}
@@ -146,9 +147,7 @@ public class Gun : MonoBehaviour {
 		{
 			anim.Play(shootAnimation);
 		}
-		if(gunShoot != null)gunShoot.Play();
-		if(part != null)part.Play();
-		if(part2 != null)part2.Play();
+
 	}
 	
 	private void Reload()
@@ -181,6 +180,11 @@ public class Gun : MonoBehaviour {
 		if(Physics.Raycast(muzzle.position, muzzle.forward,out hit, maxDistance, ~ignoreLayer))
 		{
 			crosshair.transform.position = hit.point;
+			crosshair.SetActive(true);
+		}
+		else
+		{
+			crosshair.SetActive(false);
 		}
 		
 	}

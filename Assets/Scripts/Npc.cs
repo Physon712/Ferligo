@@ -163,7 +163,7 @@ public class Npc : MonoBehaviour {
 	{
 		reactionTime -= Time.deltaTime;
 		direction = target.position-transform.position;
-		if(Mathf.Abs(brain.velocity.x) >= 0.05f ||  Mathf.Abs(brain.velocity.y) >= 0.05f)
+		if(Mathf.Abs(brain.velocity.x) >= 0.01f ||  Mathf.Abs(brain.velocity.y) >= 0.01f)
 		{
 			anim.SetBool("isWalking", true);
 		}

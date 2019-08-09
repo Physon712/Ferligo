@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TriggerWave : MonoBehaviour
 {
@@ -10,9 +11,14 @@ public class TriggerWave : MonoBehaviour
 	public AudioSource speaker;
 	public AudioClip music;
 	
+	public bool shutTheMusicDown = false;
+	
 	public Radio radio;
 	public AudioClip transmission;
 	public string author;
+	
+	public string nextLevel;
+	public Inventory playerInv;
 	
 	public bool justOnce = true;
 	
@@ -31,9 +37,11 @@ public class TriggerWave : MonoBehaviour
 			if(music != null)
 			{
 				speaker.clip = music;
+				speaker.gameObject.GetComponent<Animator>().Play("idle");
 				speaker.Play();
 				
 			}
+			if(shutTheMusicDown)speaker.gameObject.GetComponent<Animator>().Play("stfu");
 			if(transmission != null)
 			{
 				radio.clip = transmission;
@@ -43,6 +51,11 @@ public class TriggerWave : MonoBehaviour
 			if(finishedWave != null)
 			{
 			Destroy(finishedWave);
+			}
+			if(nextLevel != "")
+			{
+				playerInv.Saveinv();
+				SceneManager.LoadScene(nextLevel);
 			}
 			ok = false;
 	   }
