@@ -39,6 +39,8 @@ public class Gun : MonoBehaviour {
 	float shootDelay;
 	public string fireButton = "Fire1";
 	public string shootAnimation = "";
+	public string altShootAnimation = "";
+	public TextMeshPro viewportAmmoText;
 	private TextMeshProUGUI ammoText;
 	private float zOffset;
 	public int ammoLeft = 712;
@@ -83,6 +85,10 @@ public class Gun : MonoBehaviour {
             
         }
 		}
+		else
+		{
+			 if (Input.GetButtonDown("Fire3") && altShootAnimation != "")anim.Play(altShootAnimation);
+		}
         if (canAim &&Input.GetButton("Fire2"))
         {
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, aimingFov, 10f*Time.deltaTime);
@@ -101,11 +107,12 @@ public class Gun : MonoBehaviour {
 		{
 			Shoot();
 		}
-		if((Input.GetKey("r") && shootDelay < 0 && ammoLeft != magSize && ammoSatchel.ammo[ammoType] > 0 && !autoReload && (!canAim || !anim.GetBool("isAiming")) ) || (autoReload && shootDelay < 0 && ammoLeft != magSize && ammoSatchel.ammo[ammoType] > 0 && (!canAim || !anim.GetBool("isAiming"))))
+		if((Input.GetButton("Reload") && shootDelay < 0 && ammoLeft != magSize && ammoSatchel.ammo[ammoType] > 0 && !autoReload && (!canAim || !anim.GetBool("isAiming")) ) || (autoReload && shootDelay < 0 && ammoLeft != magSize && ammoSatchel.ammo[ammoType] > 0 && (!canAim || !anim.GetBool("isAiming"))))
 		{
 			Reload();
 		}
 		if(ammoText != null)ammoText.text = ammoLeft.ToString() + " | " + ammoSatchel.ammo[ammoType].ToString();
+		if(viewportAmmoText != null)viewportAmmoText.text = ammoLeft.ToString();
 	}
 	
 	void FixedUpdate(){
@@ -140,10 +147,10 @@ public class Gun : MonoBehaviour {
 	
 	private void Fire()
 	{
-		Instantiate(bullet,muzzle.position,Quaternion.Euler(new Vector3(Random.Range(-dispersion,dispersion),Random.Range(-dispersion,dispersion),Random.Range(-dispersion,dispersion))+muzzle.eulerAngles),null);
+		if(bullet != null)Instantiate(bullet,muzzle.position,Quaternion.Euler(new Vector3(Random.Range(-dispersion,dispersion),Random.Range(-dispersion,dispersion),Random.Range(-dispersion,dispersion))+muzzle.eulerAngles),null);
 
 		mouseLookScript.currentCameraXRotation -= punch;
-		if(shootAnimation != "" && !anim.GetBool("isAiming"))
+		if(shootAnimation != "" && (!canAim || !anim.GetBool("isAiming")))
 		{
 			anim.Play(shootAnimation);
 		}

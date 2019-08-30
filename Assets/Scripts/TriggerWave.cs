@@ -18,6 +18,7 @@ public class TriggerWave : MonoBehaviour
 	public string author;
 	
 	public string nextLevel;
+	public GameObject loading;
 	public Inventory playerInv;
 	
 	public bool justOnce = true;
@@ -28,6 +29,7 @@ public class TriggerWave : MonoBehaviour
 		if(wave != null)wave.SetActive(false);
 		speaker = GameObject.Find("Music").GetComponent<AudioSource>();
 		radio = GameObject.Find("Radio").GetComponent<Radio>();
+		
 	}
 	
    void OnTriggerEnter(Collider other){
@@ -54,6 +56,8 @@ public class TriggerWave : MonoBehaviour
 			}
 			if(nextLevel != "")
 			{
+				//loading = GameObject.Find("Loading");
+				loading.SetActive(true);
 				playerInv.Saveinv();
 				SceneManager.LoadScene(nextLevel);
 			}

@@ -6067,7 +6067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211e499038a99144183690e98be49257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageMultiplier: 3
+  damageMultiplier: 10
   subject: {fileID: 5326895934877395255}
   player: {fileID: 0}
 --- !u!82 &4923737905370260880
@@ -6090,7 +6090,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
+  MinDistance: 10
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -6263,36 +6263,42 @@ MonoBehaviour:
   anim: {fileID: 7069623019921731416}
   mouth: {fileID: 4923737905370260880}
   deadthClip:
-  - {fileID: 8300000, guid: 5beff7a9c34463b4493e784b2baeb4ed, type: 3}
-  - {fileID: 8300000, guid: 038dcb72ec183694c9aa5f93134f4765, type: 3}
-  - {fileID: 8300000, guid: a485081f7e5a39244a6d179d142352a2, type: 3}
-  - {fileID: 8300000, guid: 99cec55c4ab37d64199d1424420b93fe, type: 3}
-  - {fileID: 8300000, guid: 9624da33ab128e343a2a66ad0ef9f5a4, type: 3}
+  - {fileID: 8300000, guid: c0a57aabc5a43e640be91327fa819765, type: 3}
+  - {fileID: 8300000, guid: 5438fbe3f1cccb74086e61cf5d8bccc7, type: 3}
+  - {fileID: 8300000, guid: de3c82e4785b1534d9672d61d44eb3ce, type: 3}
+  - {fileID: 8300000, guid: 45330ef0a66c3b74e9c5bad25e038681, type: 3}
+  - {fileID: 8300000, guid: 59130f63ebd81964fa38eb79008bb898, type: 3}
+  - {fileID: 8300000, guid: 3f7f5f7fb4c6ee746bf47bd5242fc778, type: 3}
+  - {fileID: 8300000, guid: cd4de04d52fdc174e8a8aa40d60c1f3d, type: 3}
   swearClip:
-  - {fileID: 8300000, guid: 872e97a8633e7be44b5160270da396f1, type: 3}
-  - {fileID: 8300000, guid: b36edfd2cf9d89a4d93779d4f70c3f09, type: 3}
-  - {fileID: 8300000, guid: 89c365d95eed38146a1b7f080d2445e3, type: 3}
-  - {fileID: 8300000, guid: bebf6958b9540f94fbfa20dee6d35cc8, type: 3}
-  - {fileID: 8300000, guid: 12ad769d1b66f4e439cefedf9fdfcede, type: 3}
-  - {fileID: 8300000, guid: aebfed6f47361474c8f05f0792e13bb3, type: 3}
-  - {fileID: 8300000, guid: be93527082696f744a5487aeced93491, type: 3}
-  - {fileID: 8300000, guid: 8142d7d893dd10244b1f3b4ad3df0beb, type: 3}
-  - {fileID: 8300000, guid: aadf3bbe755cde94d96a39204e75f12f, type: 3}
-  - {fileID: 8300000, guid: 9c9c1018ff89625428fe6d03d3759a67, type: 3}
-  - {fileID: 8300000, guid: 5336a5bda7c6f774f89fe3cff0e6a5e4, type: 3}
-  - {fileID: 8300000, guid: 6b0b8151a7d702446b0593bf65d1929d, type: 3}
-  - {fileID: 8300000, guid: 0a9c4ae54f2f313409837dc05112e6cd, type: 3}
-  - {fileID: 8300000, guid: 0e1dffebcf0dec9468a48d756f2969fc, type: 3}
-  - {fileID: 8300000, guid: d1c628822d16a664abd30302ba6e9c55, type: 3}
-  - {fileID: 8300000, guid: 202edf96b0f389f42b3453b8142b707f, type: 3}
+  - {fileID: 8300000, guid: dd3801bbe4bab494bb56c621a70c89bc, type: 3}
+  - {fileID: 8300000, guid: fa6d7ddf9383e11429f44ddcb2103258, type: 3}
+  - {fileID: 8300000, guid: fbc16be04ebca78439dba105dc357a6f, type: 3}
+  - {fileID: 8300000, guid: e348caf1c9b6761428b62707897fc348, type: 3}
+  - {fileID: 8300000, guid: 2bb4dca53801e3a4e9e235e12ddee396, type: 3}
+  - {fileID: 8300000, guid: d5e2e2e9569c9764da948167326ed6a1, type: 3}
+  - {fileID: 8300000, guid: b8febbce0f4eca344ac3caaa490209c1, type: 3}
+  - {fileID: 8300000, guid: 448fdb9cd4736c64fb6ddd3157d21e01, type: 3}
+  - {fileID: 8300000, guid: dc12ca3deab23d846a6b2823fcb63134, type: 3}
+  - {fileID: 8300000, guid: 75b81b35bd96ff84cbd964f5cb001113, type: 3}
+  - {fileID: 8300000, guid: 210c1a36b13dee044a0f2de500374f16, type: 3}
+  - {fileID: 8300000, guid: 989a7d0df17707c44bad13c268d0ce00, type: 3}
+  - {fileID: 8300000, guid: 30f4667f558514346bb667ff782cbf87, type: 3}
+  - {fileID: 8300000, guid: 1215753a20d1e274ca8241f6b0fe1b9b, type: 3}
+  - {fileID: 8300000, guid: 418041329a5fd3444890bdad95376127, type: 3}
+  - {fileID: 8300000, guid: 3385af7cc37341449b9f6c3612debabc, type: 3}
+  - {fileID: 8300000, guid: 11c12df84eed2974eb79d735f194c626, type: 3}
+  - {fileID: 8300000, guid: 6c0b607ecfe579840b6415086f5257ae, type: 3}
+  - {fileID: 8300000, guid: 290b78bcdbbad2a4d9f971418a98629a, type: 3}
+  - {fileID: 8300000, guid: 59f76248354bc4e49a6a343a8b565681, type: 3}
   painClip:
-  - {fileID: 8300000, guid: da464cc2ae460f74b900a1a6ffd40aec, type: 3}
-  - {fileID: 8300000, guid: 54f5fce609b694d4799413b33dc1be30, type: 3}
-  - {fileID: 8300000, guid: 0f6ea4ceda6553946816af6dfce089c8, type: 3}
-  - {fileID: 8300000, guid: bad0c8fe73914ab4ab736cb9f596703f, type: 3}
-  - {fileID: 8300000, guid: 271c20592aee4254c86ad294e972bcca, type: 3}
-  - {fileID: 8300000, guid: 854cf9007532712469b8ebfcda93b992, type: 3}
-  - {fileID: 8300000, guid: d74ebf6a7c3e0f24f9628f5387079c29, type: 3}
+  - {fileID: 8300000, guid: a0209f37c89f8174daa9299aa6e8470b, type: 3}
+  - {fileID: 8300000, guid: 73f525709b160144b9579ce25a4e9267, type: 3}
+  - {fileID: 8300000, guid: a29d6b948c1ec7f42a12e7d0e0d3546c, type: 3}
+  - {fileID: 8300000, guid: 56f5fe792a58de646a1a8d5beb797195, type: 3}
+  - {fileID: 8300000, guid: 085ca1034b8b67d49a50ddfdd5b32b9d, type: 3}
+  - {fileID: 8300000, guid: a1f8681ca1fbc7f49bed728353df7eab, type: 3}
+  - {fileID: 8300000, guid: d6e245ac8fce5344b8caa767d15a59f2, type: 3}
   callbackupClip:
   - {fileID: 8300000, guid: 363425d209c94484bac5054fdf148195, type: 3}
   - {fileID: 8300000, guid: 0f5e2240c194b3e4aa0172e90e577919, type: 3}
@@ -6325,6 +6331,7 @@ MonoBehaviour:
   nextShoot: 0
   reactionLeft: 0
   deaf: 0
+  idleAnimation: 
 --- !u!114 &3625591175795815809
 MonoBehaviour:
   m_ObjectHideFlags: 0

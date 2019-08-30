@@ -4839,7 +4839,7 @@ MonoBehaviour:
   damage: 120
   damageMultiplierBadguy: 1
   damageMultiplierPlayer: 0.5
-  force: 1000
+  force: 2000
   dummyBlood: {fileID: 0}
 --- !u!114 &-4006560896330957373
 MonoBehaviour:

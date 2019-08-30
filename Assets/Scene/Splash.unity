@@ -571,6 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipTime: 8
+  scene: TechDemoFirst
 --- !u!1 &956934765
 GameObject:
   m_ObjectHideFlags: 0

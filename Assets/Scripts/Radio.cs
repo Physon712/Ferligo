@@ -10,6 +10,9 @@ public class Radio : MonoBehaviour
 	public string name = "Unknown";
 	
 	public AudioSource speaker;
+	public AudioSource mEnd;
+	public AudioSource mInc;
+	private bool mIndex = false;
 	public TextMeshProUGUI displayText;
     // Start is called before the first frame update
     void Start()
@@ -26,10 +29,20 @@ public class Radio : MonoBehaviour
         if(speaker.isPlaying)
 		{
 			if(displayText != null)displayText.text = "Inc. Trans. : " + name;
+			if(!mIndex)
+			{
+				mIndex = true;
+				mInc.Play();
+			}
 		}
 		else
 		{
 			if(displayText != null)displayText.text = "";
+			if(mIndex)
+			{
+				mIndex = false;
+				mEnd.Play();
+			}
 		}
     }
 	

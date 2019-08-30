@@ -44,6 +44,7 @@ public class Npc : MonoBehaviour {
 	public float nextShoot = 0f;
 	public float reactionLeft;
 	public bool deaf = false;
+	public string idleAnimation;
 	
 	int shootLeft;
 	float reactionTime;
@@ -60,6 +61,7 @@ public class Npc : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+		if(idleAnimation != "")anim.Play(idleAnimation);
         timeleft = ragdollTime;
 		if(target == null)target = GameObject.Find("Player").transform;//PROVISOIRE
 		
@@ -122,7 +124,6 @@ public class Npc : MonoBehaviour {
 			armor -= armorAmount;
 			if(armor < 0f)
 			{
-				//PLay a sound ?
 				health += armor;
 				armor = 0f;
 			}
@@ -179,6 +180,7 @@ public class Npc : MonoBehaviour {
 				if(hit.transform.gameObject.layer == enemyLayer)
 				{
 				AiState = 1;
+				anim.Play("Aim");
 				nextShoot = Time.time + reflexTime;
 				reactionTime = maxReactionTime;
 				}
@@ -189,10 +191,10 @@ public class Npc : MonoBehaviour {
 		{
 			if (Physics.Raycast (transform.position+Vector3.up*1.8f, direction.normalized,out hit , range, ~lm)) 
 			{	
-				
+				RotateTowards(target);
 				if(hit.transform.gameObject.layer == enemyLayer)
 				{
-					RotateTowards(target);
+					
 					if(nextMove < Time.time)
 					{
 						MakeAMove();
@@ -231,9 +233,10 @@ public class Npc : MonoBehaviour {
 		if(AiState == 2)//SearchTheTarget
 		{
 		
-			
-			if (Physics.Raycast (transform.position+Vector3.up*2, direction.normalized,out hit , range, ~lm)/* && Vector3.Angle(direction, transform.forward) < fov / 2f*/ && hit.transform.gameObject.layer == enemyLayer ) 
+			Debug.DrawLine(transform.position+Vector3.up*1.8f, target.position+Vector3.up*1.8f , Color.red, 1f);
+			if (Physics.Raycast (transform.position+Vector3.up*1.8f, direction.normalized,out hit , range, ~lm)/* && Vector3.Angle(direction, transform.forward) < fov / 2f*/ && hit.transform.gameObject.layer == enemyLayer ) 
 			{
+				
 				brain.isStopped = true;
 				nextShoot = Time.time + reflexTime;
 				AiState = 1;

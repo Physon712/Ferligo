@@ -157,7 +157,8 @@ public class Inventory : MonoBehaviour {
 		weapponPossesion[5] = PlayerPrefs.GetInt("weap6",0)==1?true:false;;//Grenade
 		weapponPossesion[6] = PlayerPrefs.GetInt("weap7",0)==1?true:false;;//Sniper
 		weapponPossesion[7] = PlayerPrefs.GetInt("weap8",0)==1?true:false;;//Rocket Launcher
-		weapponPossesion[8] = PlayerPrefs.GetInt("weap9",0)==1?true:false;;//C4
+		weapponPossesion[8] = PlayerPrefs.GetInt("weap9",0)==1?true:false;;//Rocket Launcher FMC
+		weapponPossesion[9] = PlayerPrefs.GetInt("weap10",0)==1?true:false;;//C4
 		
 		//weapon[0].GetComponent<Gun>().ammoLeft = PlayerPrefs.GetInt("weap1am",0);
 		weapon[1].GetComponent<Gun>().ammoLeft = PlayerPrefs.GetInt("weap2am",16);
@@ -167,7 +168,8 @@ public class Inventory : MonoBehaviour {
 		weapon[5].GetComponent<Gun>().ammoLeft = PlayerPrefs.GetInt("weap6am",1);
 		weapon[6].GetComponent<Gun>().ammoLeft = PlayerPrefs.GetInt("weap7am",7);
 		weapon[7].GetComponent<Gun>().ammoLeft = PlayerPrefs.GetInt("weap8am",6);
-		//weapon[8].GetComponent<Gun>().ammoLeft = PlayerPrefs.GetInt("weap9am",1);
+		weapon[8].GetComponent<Gun>().ammoLeft = PlayerPrefs.GetInt("weap9am",6);
+		weapon[9].GetComponent<Gun>().ammoLeft = PlayerPrefs.GetInt("weap10am",1);
 		
 		ammo[0] = PlayerPrefs.GetInt("smBullet",16);
 		ammo[1] = PlayerPrefs.GetInt("meBullet",0);
@@ -194,6 +196,7 @@ public class Inventory : MonoBehaviour {
 		PlayerPrefs.SetInt("weap7",weapponPossesion[6]?1:0);
 		PlayerPrefs.SetInt("weap8",weapponPossesion[7]?1:0);
 		PlayerPrefs.SetInt("weap9",weapponPossesion[8]?1:0);
+		PlayerPrefs.SetInt("weap10",weapponPossesion[9]?1:0);
 		
 		//PlayerPrefs.SetInt("weap1am",weapon[0].GetComponent<Gun>().ammoLeft);
 		PlayerPrefs.SetInt("weap2am",weapon[1].GetComponent<Gun>().ammoLeft);
@@ -203,7 +206,8 @@ public class Inventory : MonoBehaviour {
 		PlayerPrefs.SetInt("weap6am",weapon[5].GetComponent<Gun>().ammoLeft);
 		PlayerPrefs.SetInt("weap7am",weapon[6].GetComponent<Gun>().ammoLeft);
 		PlayerPrefs.SetInt("weap8am",weapon[7].GetComponent<Gun>().ammoLeft);
-		//PlayerPrefs.SetInt("weap9am",weapon[8].GetComponent<Gun>().ammoLeft);
+		PlayerPrefs.SetInt("weap9am",weapon[8].GetComponent<Gun>().ammoLeft);
+		PlayerPrefs.SetInt("weap10am",weapon[9].GetComponent<Gun>().ammoLeft);
 		
 		PlayerPrefs.SetInt("smBullet", ammo[0]);
 		PlayerPrefs.SetInt("meBullet", ammo[1]);

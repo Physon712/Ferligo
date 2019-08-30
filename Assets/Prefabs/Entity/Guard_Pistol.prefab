@@ -5748,6 +5748,7 @@ MonoBehaviour:
   nextShoot: 0
   reactionLeft: 0
   deaf: 0
+  idleAnimation: Idle
 --- !u!114 &4001545012449792433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5973,7 +5974,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -3334933058281800568, guid: 317f2fac61088b74e96948a0c9186096, type: 3}
+  m_Mesh: {fileID: -3334933058281800568, guid: 06a564cadb0a4d34fae5b55498f87183, type: 3}
   m_Bones:
   - {fileID: 9196296384953514694}
   - {fileID: 5629688123554157016}
