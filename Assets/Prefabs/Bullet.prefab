@@ -46,7 +46,7 @@ MonoBehaviour:
   maxDistance: 1000000
   damage: 20
   damageArmor: 10
-  decalHitWall: {fileID: 1672059315757430, guid: 311c3b16dd989ce4ba65e246a9637d4e,
+  decalHitWall: {fileID: 7504448453438818519, guid: 55038d473fc0a994181c4d2a6898a640,
     type: 3}
   decalBloodHitWall: {fileID: 1634678369191810, guid: d1c82cf73323e9e47a69d153d2b00c91,
     type: 3}

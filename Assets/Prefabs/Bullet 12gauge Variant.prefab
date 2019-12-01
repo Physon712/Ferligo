@@ -4927,21 +4927,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet 12gauge Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 4777068923259683701, guid: a6bde3f4b617268449cc559dac40b5b3,
-        type: 3}
-      propertyPath: maxDistance
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4777068923259683701, guid: a6bde3f4b617268449cc559dac40b5b3,
-        type: 3}
-      propertyPath: damage
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 4777068923259683701, guid: a6bde3f4b617268449cc559dac40b5b3,
-        type: 3}
-      propertyPath: damageArmor
-      value: 24
-      objectReference: {fileID: 0}
     - target: {fileID: 4777068923259683706, guid: a6bde3f4b617268449cc559dac40b5b3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4997,6 +4982,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4777068923259683701, guid: a6bde3f4b617268449cc559dac40b5b3,
+        type: 3}
+      propertyPath: maxDistance
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777068923259683701, guid: a6bde3f4b617268449cc559dac40b5b3,
+        type: 3}
+      propertyPath: damage
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777068923259683701, guid: a6bde3f4b617268449cc559dac40b5b3,
+        type: 3}
+      propertyPath: damageArmor
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777068923259683701, guid: a6bde3f4b617268449cc559dac40b5b3,
+        type: 3}
+      propertyPath: decalHitWall
+      value: 
+      objectReference: {fileID: 1672059315757430, guid: 311c3b16dd989ce4ba65e246a9637d4e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6bde3f4b617268449cc559dac40b5b3, type: 3}
 --- !u!1 &1661887949187319621 stripped

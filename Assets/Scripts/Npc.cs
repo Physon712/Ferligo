@@ -10,7 +10,7 @@ public class Npc : MonoBehaviour {
 	public NavMeshAgent brain;
     public float health = 100f;
 	public float armor = 25f;
-    public float ragdollTime = 30f;
+    //public float ragdollTime = 30f;
 	public Animator anim;
 	public AudioSource mouth;
 	public AudioClip[] deadthClip;
@@ -40,17 +40,19 @@ public class Npc : MonoBehaviour {
 	public float duckTendancy = 0.5f;
 	public float fov = 135f;
 	public GameObject reinforcment;
+	public bool reinforcmentOnDie = false;
 	RaycastHit hit;
 	public float nextShoot = 0f;
 	public float reactionLeft;
 	public bool deaf = false;
 	public string idleAnimation;
+	public GameObject disableOnDeath;
 	
 	int shootLeft;
 	float reactionTime;
 	float nextMove = 0f;
     private Rigidbody crb;
-    private float timeleft;
+    //private float timeleft;
     private bool ragdollMode = false;
 	private bool dead = false;
 	
@@ -62,7 +64,7 @@ public class Npc : MonoBehaviour {
     void Start()
     {
 		if(idleAnimation != "")anim.Play(idleAnimation);
-        timeleft = ragdollTime;
+        //timeleft = ragdollTime;
 		if(target == null)target = GameObject.Find("Player").transform;//PROVISOIRE
 		
 
@@ -72,11 +74,13 @@ public class Npc : MonoBehaviour {
     void Update()
     {
 		
-        if(ragdollMode)timeleft -= Time.deltaTime;
+        //if(ragdollMode)timeleft -= Time.deltaTime;
+		/*
         if (timeleft <= 0)
         {
             Destroy(gameObject);
         }
+		*/
 		if(Input.GetKeyDown(KeyCode.P))
 		{
 			Die();
@@ -89,6 +93,7 @@ public class Npc : MonoBehaviour {
 
     private void Die()
     {
+		if(disableOnDeath != null)disableOnDeath.SetActive(false);
 
         Rigidbody[] bodies = GetComponentsInChildren<Rigidbody>();
         foreach (Rigidbody rb in bodies)
@@ -102,6 +107,7 @@ public class Npc : MonoBehaviour {
 		dead = true;
 		AiState = -1;
 		index = Random.Range (0, deadthClip.Length);
+		if(reinforcmentOnDie)reinforcment.SetActive(true);
 		mouth.clip = deadthClip[index];
 		mouth.Play();
 		Collider[] colliders = Physics.OverlapSphere(transform.position, screamRadius);//DieScream
@@ -110,7 +116,7 @@ public class Npc : MonoBehaviour {
 		Npc subject = nearbyObject.GetComponent<Npc> ();
 			if (subject != null)
 			{
-				if(subject.AiState != 3 && subject.AiState != 2)subject.AiState = 1;
+				if(subject.AiState != 3 && subject.AiState != 2)subject.AiState = 1;//OMG you've killed my buddy ! Payback Time !
 			}
 		}
        
@@ -147,13 +153,13 @@ public class Npc : MonoBehaviour {
 			mouth.clip = painClip[index];
 			mouth.Play();
 			
-			if(!anim.GetBool("isDucking") || anim.GetBool("isWalking"))
+			if(!anim.GetBool("isDucking"))
 			{
-				anim.Play("Hurt");
+				if(!anim.GetBool("isWalking"))anim.Play("Hurt");
 			}
 			else
 			{
-				anim.Play("Hurt_Duck");
+				if(!anim.GetBool("isWalking"))anim.Play("Hurt_Duck");
 			}
 		}
 
@@ -233,7 +239,6 @@ public class Npc : MonoBehaviour {
 		if(AiState == 2)//SearchTheTarget
 		{
 		
-			Debug.DrawLine(transform.position+Vector3.up*1.8f, target.position+Vector3.up*1.8f , Color.red, 1f);
 			if (Physics.Raycast (transform.position+Vector3.up*1.8f, direction.normalized,out hit , range, ~lm)/* && Vector3.Angle(direction, transform.forward) < fov / 2f*/ && hit.transform.gameObject.layer == enemyLayer ) 
 			{
 				
@@ -246,7 +251,7 @@ public class Npc : MonoBehaviour {
 			{
 				brain.SetDestination(target.position);
 				brain.isStopped = false;
-				if(reinforcment !=  null)reinforcment.SetActive(true); //Call Backup Now !
+				if(reinforcment !=  null && !reinforcmentOnDie)reinforcment.SetActive(true); //Call Backup Now !
 			}
 		}
 	}
@@ -267,7 +272,7 @@ public class Npc : MonoBehaviour {
 	{
 		anim.SetBool("isDucking", (Random.value > duckTendancy));
 		index = Random.Range (0, swearClip.Length);
-		mouth.clip = swearClip[index];
+		mouth.clip = swearClip[index]; //Busted ! MINE SCUUMMM
 		mouth.Play();
 		randomDirection = Random.insideUnitSphere * strafRadius;
 		randomDirection += transform.position;

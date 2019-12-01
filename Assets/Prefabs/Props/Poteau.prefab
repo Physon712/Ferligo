@@ -105,6 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236ab70966828cf4fbbba45a72b58859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 250
+  health: 120
   spark: {fileID: 0}
   wasted: {fileID: 608330021757082944, guid: a72210ad531cc8e4a9efcbab6afab442, type: 3}

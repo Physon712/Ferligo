@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scene/Splash.unity
     guid: beefb6e5be5ccfb4495c226aaf310b18
   - enabled: 1
+    path: Assets/Scene/Menu.unity
+    guid: aeb1480ccc9ed7345947aa658ae0203b
+  - enabled: 1
     path: Assets/Scene/TechDemoFirst.unity
     guid: 5d90ba57d9aa2aa4985fbc77493d329b
   - enabled: 1
@@ -23,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/First.unity
     guid: df25b609f028ae242b2b8f33d3608dac
+  - enabled: 1
+    path: Assets/Scene/Boss.unity
+    guid: d8f108c5f207ea94eb5e4274cc8b6d29
+  - enabled: 1
+    path: Assets/Scene/DemoEnd.unity
+    guid: 23d66401aeaee134ba835579e89b7743
   m_configObjects: {}

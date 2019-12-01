@@ -19,7 +19,7 @@ public class SuperMaketDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(nextClosure < Time.time)
+        if(nextClosure < Time.time)//Closing Time
 		{
 			if(anim.GetBool("isOpen"))
 			{
@@ -32,7 +32,7 @@ public class SuperMaketDoor : MonoBehaviour
 	
 	void OnTriggerStay(Collider other)
 	{
-		if(!anim.GetBool("isOpen"))
+		if(!anim.GetBool("isOpen"))//Opening time
 			{
 				audio.clip = opening;
 				audio.Play();

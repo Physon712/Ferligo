@@ -27,33 +27,33 @@ public class BulletScript : MonoBehaviour {
 	{
 		if(decalHitWall)
 		{
-			Damageable target = hit.transform.GetComponent<Damageable> ();
-			Breakable target2 = hit.transform.GetComponent<Breakable> ();
-			if(hit.transform.tag == "LevelPart")
+			Damageable target = hit.transform.GetComponent<Damageable> ();//The meat
+			Breakable target2 = hit.transform.GetComponent<Breakable> ();//The clunky stuff
+			if(hit.transform.tag == "LevelPart")//The great walls. Here the gun spark !
 			{
 				Instantiate(decalHitWall, hit.point + hit.normal * floatInfrontOfWall, Quaternion.LookRotation(hit.normal));
 				Destroy(gameObject,0.25f);
 			}
 			
-			if(hit.transform.tag == "Dummie" && target != null)
+			if(hit.transform.tag == "Dummie" && target != null)//The fleshy guys
 				{
 				Instantiate(bloodEffect, hit.point, Quaternion.LookRotation(hit.normal));
 				
 				if(Physics.Raycast(hit.point, transform.forward,out hit2, 5f, mask))
 					{
-					if(hit2.transform.tag == "LevelPart")
+					if(hit2.transform.tag == "LevelPart")//Through the fleshy guys, blood on the wall
 						{
 						Instantiate(decalBloodHitWall, hit2.point + hit2.normal * floatInfrontOfWall, Quaternion.LookRotation(hit2.normal));
 						}
 					}
 				}
-			if(hit.transform.tag == "Untagged")
+			if(hit.transform.tag == "Untagged")//WTF is this ? is this a dev room ? I don't care : default boring spark !
 			{
 				Instantiate(sparkEffect, hit.point + hit.normal * floatInfrontOfWall, Quaternion.LookRotation(hit.normal));
 				Destroy(gameObject,0.25f);
 			}
 			
-			if(hit.transform.tag == "Breakable" && target2 != null)
+			if(hit.transform.tag == "Breakable" && target2 != null)//Something that will fall appart. Here a special spark for you !
 			{
 				Instantiate(target2.spark, hit.point, Quaternion.LookRotation(hit.normal));
 			}
@@ -62,11 +62,11 @@ public class BulletScript : MonoBehaviour {
 					
 			if (target != null)
 				{
-				target.TakeDamage(damage, damageArmor);
+				target.TakeDamage(damage, damageArmor);//The meat is damaged !
 				}
 			if (target2 != null)
 				{
-				target2.TakeDamage(damageArmor);
+				target2.TakeDamage(damageArmor);//The clunky thing is damaged ! its gonna break !
 				}
 				
 		}
@@ -87,9 +87,5 @@ public class BulletScript : MonoBehaviour {
 		
 	}
 	
-	
-	void OnDestroy(){
-		
-	}
 }
 

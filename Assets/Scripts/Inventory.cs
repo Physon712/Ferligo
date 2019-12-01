@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 using TMPro;
 
 public class Inventory : MonoBehaviour {
@@ -115,6 +117,8 @@ public class Inventory : MonoBehaviour {
 				nextOxyPain = Time.time + hypoOxyRate;
 			}
 		}
+		//if(Input.GetButtonDown("Cancel"))Exit();
+		
 		//ammoText.text = ammo[weapon[currentWeapon].transform.GetComponent<Gun>().ammoType].ToString();
 		healthText.text = health.ToString() + " | "  + armor.ToString();
 		//armorText.text = armor.ToString();
@@ -222,6 +226,8 @@ public class Inventory : MonoBehaviour {
 		PlayerPrefs.SetInt("armorStyle",armorStyle);
 		
 		
+		
+		
 	}
         
 	[System.Serializable]
@@ -239,6 +245,11 @@ public class Inventory : MonoBehaviour {
 		weapon[currentWeapon].SetActive(false);
 		weapon[currentWeapon].SetActive(true);
 		
+	}
+	
+	void Exit()
+	{
+		SceneManager.LoadScene("Menu");
 	}
 	
 }

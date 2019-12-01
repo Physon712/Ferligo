@@ -22,18 +22,18 @@ public class Explosion : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 		foreach(Collider nearbyObject in colliders)
 		{
-		Inventory subject = nearbyObject.GetComponent<Inventory> ();
+		Inventory subject = nearbyObject.GetComponent<Inventory> ();//The player 
 			if (subject != null)
 			{
 			subject.GetHurt(damage*damageMultiplierPlayer, damage*damageMultiplierPlayer);
 			}
-		Damageable target = nearbyObject.GetComponent<Damageable> ();
+		Damageable target = nearbyObject.GetComponent<Damageable> ();//The npc
 			if (target != null)
 			{
 			target.TakeDamage(damage*damageMultiplierBadguy/10, damage*damageMultiplierBadguy/10);
 			if(dummyBlood != null)Instantiate(dummyBlood,target.transform.position+Vector3.up,target.transform.rotation);
 			}
-		Breakable target2 = nearbyObject.GetComponent<Breakable> ();
+		Breakable target2 = nearbyObject.GetComponent<Breakable> ();//The objects
 			if (target2 != null)
 			{
 			target2.TakeDamage(damage);

@@ -12,12 +12,14 @@ public class MouseLook : MonoBehaviour {
 	 */
 	void Awake(){
 		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 		myCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
 		
 	}
 	
 	void Start(){
 		wantedYRotation = azimuth;
+		
 	}
 
 	/*
@@ -142,7 +144,7 @@ public bool showFps = true;
 void OnGUI(){
 
 	if(showFps){
-		FPSCounter();
+		//FPSCounter();
 	}
 
 }

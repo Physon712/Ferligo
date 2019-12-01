@@ -4992,6 +4992,12 @@ PrefabInstance:
       propertyPath: damageArmor
       value: 26
       objectReference: {fileID: 0}
+    - target: {fileID: 4777068923259683701, guid: a6bde3f4b617268449cc559dac40b5b3,
+        type: 3}
+      propertyPath: decalHitWall
+      value: 
+      objectReference: {fileID: 1672059315757430, guid: 311c3b16dd989ce4ba65e246a9637d4e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6bde3f4b617268449cc559dac40b5b3, type: 3}
 --- !u!1 &7363090175153627099 stripped

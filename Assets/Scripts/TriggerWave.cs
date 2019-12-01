@@ -58,8 +58,10 @@ public class TriggerWave : MonoBehaviour
 			{
 				//loading = GameObject.Find("Loading");
 				loading.SetActive(true);
+				
 				playerInv.Saveinv();
 				SceneManager.LoadScene(nextLevel);
+				PlayerPrefs.SetInt("currentLevel", SceneManager.GetSceneByName(nextLevel).buildIndex);
 			}
 			ok = false;
 	   }
